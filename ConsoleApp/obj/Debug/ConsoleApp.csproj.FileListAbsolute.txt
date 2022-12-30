@@ -1,0 +1,16 @@
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\ConsoleApp.exe.config
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\ConsoleApp.exe
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\ConsoleApp.pdb
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\ClassLibrary1.dll
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\EntityFramework.dll
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\ClassLibrary1.pdb
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\ClassLibrary1.dll.config
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\EntityFramework.xml
+C:\Projects\NET\Restaurant\ConsoleApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\NET\Restaurant\ConsoleApp\obj\Debug\ConsoleApp.csproj.AssemblyReference.cache
+C:\Projects\NET\Restaurant\ConsoleApp\obj\Debug\ConsoleApp.csproj.SuggestedBindingRedirects.cache
+C:\Projects\NET\Restaurant\ConsoleApp\obj\Debug\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Projects\NET\Restaurant\ConsoleApp\obj\Debug\ConsoleApp.csproj.CopyComplete
+C:\Projects\NET\Restaurant\ConsoleApp\obj\Debug\ConsoleApp.exe
+C:\Projects\NET\Restaurant\ConsoleApp\obj\Debug\ConsoleApp.pdb
