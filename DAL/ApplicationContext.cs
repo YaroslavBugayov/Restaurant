@@ -39,11 +39,21 @@ namespace DAL
                 .HasForeignKey<int>(p => p.DishId);
 
             dbModelBuilder
-                .Entity<Pricelist>()
-                .HasRequired<Order>(p => p.Order)
-                .WithMany(o => o.Pricelists)
-                .HasForeignKey<int>(p => p.OrderId);
+                .Entity<Order>()
+                .HasMany<Pricelist>(o => o.Pricelists)
+                .WithMany(p => p.Orders)
+                .Map(op =>
+                {
+                    op.MapLeftKey("OrderRefId");
+                    op.MapRightKey("PricelistRefId");
+                    op.ToTable("OrdersPricelists");
+                });
 
+            dbModelBuilder
+                .Entity<Order>()
+                .HasRequired<User>(o => o.User)
+                .WithMany(u => u.Orders)
+                .HasForeignKey<int>(o => o.UserId);
 
         }
     }

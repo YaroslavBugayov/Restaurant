@@ -9,9 +9,9 @@ namespace DAL.Entities
     public class Order
     {
         public int Id { get; set; }
+        public User User { get; set; }
         public int UserId { get; set; }
         public int Price { get; set; }
-        public Pricelist Pricelist { get; set; }
-        public int PricelistId { get; set; }
+        public ICollection<Pricelist> Pricelists { get; set;}
     }
 }

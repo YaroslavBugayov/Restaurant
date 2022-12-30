@@ -1,8 +1,12 @@
 ﻿namespace ConsoleApp
 {
+}
+
+namespace ConsoleApp
+{
 
 
-    partial class DataSet1
+    partial class DataSet
     {
         partial class PricelistsDataTable
         {
