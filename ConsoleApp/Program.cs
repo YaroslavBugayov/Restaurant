@@ -20,6 +20,12 @@ namespace ConsoleApp
                 Ingredients = new List<Ingredient> { ingredient1 }
             };
 
+            //Pricelist pricelist1 = new Pricelist
+            //{
+            //    DishId = 1,
+            //    SizeId = 1,
+            //}
+
             //User user1 = new User
             //{
             //    Username = "Userame1",
