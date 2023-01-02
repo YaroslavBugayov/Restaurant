@@ -4,6 +4,10 @@
 
 namespace ConsoleApp
 {
+}
+
+namespace ConsoleApp
+{
 
 
     partial class DataSet

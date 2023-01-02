@@ -50,12 +50,12 @@ namespace ConsoleApp
             };
 
             // Orders
-            //Order order1 = new Order
-            //{
-            //    UserId = 1,
-            //    Price = 300,
-            //    Pricelists= new List<Pricelist> { pricelist1, pricelist2 }
-            //};
+            Order order1 = new Order
+            {
+                UserId = 1,
+                Price = 300,
+                Pricelists = new List<Pricelist> { pricelist1, pricelist2 }
+            };
 
             db.Users.Add(user1);
             db.SaveChanges();
