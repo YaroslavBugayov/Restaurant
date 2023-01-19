@@ -17,7 +17,10 @@ namespace DAL
         public DbSet<Size> Sizes { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Pricelist> Pricelists { get; set; }
-        public ApplicationContext() : base("Restaurant") {}
+        public ApplicationContext() : base("name=RestaurantDB") 
+        {
+            Database.SetInitializer<ApplicationContext>(new DropCreateDatabaseIfModelChanges<ApplicationContext>());
+        }
 
         protected override void OnModelCreating(DbModelBuilder dbModelBuilder)
         {

@@ -10,6 +10,7 @@ namespace DAL.Interfaces
     {
         ICollection<T> GetAll();
         T GetById(int id);
+        T GetByLogin(string username);
         void Create(T item);
         void Update(T item);
         void Delete(int id);

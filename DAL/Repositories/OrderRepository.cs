@@ -44,5 +44,10 @@ namespace DAL.Repositories
         {
             return db.Orders.Find(id);
         }
+
+        public Order GetByLogin(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

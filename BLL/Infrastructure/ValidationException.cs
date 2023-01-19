@@ -11,5 +11,9 @@ namespace BLL.Infrastructure
         public string Property { get; set; }
 
         public ValidationException(string message, string prop) : base(message) => Property = prop;
+
+        public ValidationException(string message) : base(message)
+        {
+        }
     }
 }

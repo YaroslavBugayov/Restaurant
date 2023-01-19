@@ -41,6 +41,11 @@ namespace ClassLibrary1.Repositories
             return db.Pricelists.Find(id);
         }
 
+        public Pricelist GetByLogin(string username)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Pricelist pricelist)
         {
             db.Entry(pricelist).State = System.Data.Entity.EntityState.Modified;
