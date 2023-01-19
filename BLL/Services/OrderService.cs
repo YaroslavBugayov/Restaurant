@@ -22,10 +22,10 @@ namespace BLL.Services
             Database.Dispose();
         }
 
-        public ICollection<PricelistDTO> GetPricelists()
+        public IEnumerable<PricelistDTO> GetPricelists()
         {
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Pricelist, PricelistDTO>()).CreateMapper();
-            return mapper.Map<ICollection<Pricelist>, List<PricelistDTO>>(Database.Pricelists.GetAll());
+            return mapper.Map<IEnumerable<Pricelist>, List<PricelistDTO>>(Database.Pricelists.GetAll());
         }
 
         public void MakeOrder(OrderDTO ordedDTO)

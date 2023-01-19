@@ -1,21 +1,16 @@
-﻿using ClassLibrary1.Repositories;
-using DAL.Entities;
+﻿using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
         private ApplicationContext db = new ApplicationContext();
-        private OrderRepository orderRepository;
-        private UserRepository userRepository;
-        private PricelistRepository pricelistRepository;
+        private Repository<Order> orderRepository;
+        private Repository<User> userRepository;
+        private Repository<Pricelist> pricelistRepository;
 
         IRepository<User> IUnitOfWork.Users
         {
@@ -23,7 +18,7 @@ namespace DAL.UnitOfWork
             {
                 if (userRepository == null)
                 {
-                    userRepository = new UserRepository(db);
+                    userRepository = new Repository<User>(db);
                 }
                 return userRepository;
             }
@@ -35,7 +30,7 @@ namespace DAL.UnitOfWork
             {
                 if (orderRepository == null)
                 {
-                    orderRepository = new OrderRepository(db);
+                    orderRepository = new Repository<Order>(db);
                 }
                 return orderRepository;
             }
@@ -47,7 +42,7 @@ namespace DAL.UnitOfWork
             {
                 if (pricelistRepository == null)
                 {
-                    pricelistRepository = new PricelistRepository(db);
+                    pricelistRepository = new Repository<Pricelist>(db);
                 }
                 return pricelistRepository;
             }

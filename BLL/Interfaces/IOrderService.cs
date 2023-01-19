@@ -10,7 +10,7 @@ namespace BLL.Services
     public interface IOrderService
     {
         void MakeOrder(OrderDTO ordedDTO);
-        ICollection<PricelistDTO> GetPricelists();
+        IEnumerable<PricelistDTO> GetPricelists();
         void Dispose();
     }
 }
