@@ -20,7 +20,6 @@ namespace PL
 
         private void Application_Load(object sender, EventArgs e)
         {
-            this.Hide();
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
         }

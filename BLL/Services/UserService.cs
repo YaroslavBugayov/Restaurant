@@ -2,13 +2,9 @@
 using BLL.Interfaces;
 using DAL.Interfaces;
 using DAL.Entities;
-using BLL.Services;
 using BLL.Infrastructure;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Services
 {
@@ -19,9 +15,11 @@ namespace BLL.Services
         {
             Database = unitOfWork;
         }
-        public void Authenticate(UserDTO userDTO)
+        public UserDTO Authenticate(string username, string password)
         {
-            throw new NotImplementedException();
+            var account = Database.Users.Find(user => user.Username.Equals(username)).FirstOrDefault();
+
+            return MapperService.UserMapper.Map<UserDTO>(account);
         }
 
         public void CreateUser(UserDTO userDTO)

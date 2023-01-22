@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AuthorizedUserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Views\RestaurantWindow.cs">
       <SubType>Form</SubType>

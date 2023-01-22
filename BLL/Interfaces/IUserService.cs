@@ -13,7 +13,7 @@ namespace BLL.Interfaces
         void UpdateUser(UserDTO userDTO);
         void DeleteUser(UserDTO userDTO);
         UserDTO GetUserByUsername(string username);
-        void Authenticate(UserDTO userDTO);
+        UserDTO Authenticate(string username, string password);
         void Dispose();
     }
 }

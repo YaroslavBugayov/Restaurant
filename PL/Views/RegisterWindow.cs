@@ -2,13 +2,6 @@
 using PL.Models;
 using BLL.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ninject;
 using Ninject.Modules;
@@ -48,13 +41,18 @@ namespace PL.Views
 
             if (IsValid(username, password, email, firstName, lastName))
             {
-                userController.CreateUser(userViewModel);
+                var user = userController.CreateUser(userViewModel);
+                if (user != null)
+                {
+                    AuthorizedUserController.Set(userViewModel);
+                    Close();
+                }
             }
         }
 
         private void RegisterWindow_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show(userController.GetUserByUsername("1").Email, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         private bool IsValid(string username, string password, string email, 

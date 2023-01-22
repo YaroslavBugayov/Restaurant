@@ -1,4 +1,6 @@
-﻿namespace PL.Views
+﻿using System;
+
+namespace PL.Views
 {
     partial class LoginWindow
     {

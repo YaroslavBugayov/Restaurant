@@ -18,24 +18,38 @@ namespace PL.Controllers
             this.userService = userService;
         }
 
-        public void CreateUser(UserViewModel userViewModel)
+        public UserViewModel CreateUser(UserViewModel userViewModel)
         {
-            //try
-            //{
-                var userDTO = new UserDTO { 
-                    UserName = userViewModel.UserName,
-                    Email = userViewModel.Email,
-                    Password = userViewModel.Password,
-                    FirstName = userViewModel.FirstName,
-                    LastName = userViewModel.LastName
-                };
-
+            try
+            {
+                var userDTO = ViewModelToDTO(userViewModel);
                 userService.CreateUser(userDTO);
-                
-            //} catch(Exception ex)
-            //{
-            //    throw new Exception();
-            //}
+                return userViewModel;
+
+            } catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public UserViewModel Authenticate(string username, string password) 
+        { 
+            UserViewModel userViewModel = new UserViewModel();
+            try
+            {
+                var userDTO = userService.Authenticate(username, password);
+
+                if (userDTO.Password != password) 
+                {
+                    throw new Exception();
+                }
+
+                userViewModel = DTOtoViewModel(userDTO);
+            } catch (Exception ex)
+            {
+                return null;
+            }
+            return userViewModel; 
         }
 
         public UserViewModel GetUserByUsername(string username)
@@ -44,20 +58,37 @@ namespace PL.Controllers
             try
             {
                 UserDTO userDTO = userService.GetUserByUsername(username);
-                userViewModel = new UserViewModel
-                {
-                    UserName = userDTO.UserName,
-                    Password = userDTO.Password,
-                    FirstName = userDTO.FirstName,
-                    LastName = userDTO.LastName,
-                    Email = userDTO.Email
-                };
+                userViewModel = DTOtoViewModel(userDTO);
             }
             catch (Exception ex)
             {
-
+                return null;
             }
             return userViewModel;
+        }
+
+        private UserViewModel DTOtoViewModel(UserDTO userDTO)
+        {
+            return new UserViewModel
+            {
+                UserName = userDTO.UserName,
+                Password = userDTO.Password,
+                FirstName = userDTO.FirstName,
+                LastName = userDTO.LastName,
+                Email = userDTO.Email
+            };
+        }
+
+        private UserDTO ViewModelToDTO(UserViewModel userViewModel)
+        {
+            return new UserDTO
+            {
+                UserName = userViewModel.UserName,
+                Email = userViewModel.Email,
+                Password = userViewModel.Password,
+                FirstName = userViewModel.FirstName,
+                LastName = userViewModel.LastName
+            };
         }
     }
 }
