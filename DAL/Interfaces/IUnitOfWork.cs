@@ -12,6 +12,7 @@ namespace DAL.Interfaces
         IRepository<User> Users { get; }
         IRepository<Order> Orders { get; }
         IRepository<Pricelist> Pricelists { get; }
+        IRepository<Dish> Dishes { get; }
         void Save();
     }
 }

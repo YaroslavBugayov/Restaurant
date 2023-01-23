@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BLL.Interfaces;
+﻿using BLL.Interfaces;
 using BLL.Services;
 using DAL.Interfaces;
 using DAL.UnitOfWork;
@@ -21,6 +16,8 @@ namespace BLL.Infrastructure
         public override void Load()
         {
             Bind<IUserService>().To<UserService>();
+            Bind<IDishService>().To<DishService>();
+            Bind<IOrderService>().To<OrderService>();
             Bind<IUnitOfWork>().To<UnitOfWork>();
             //Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connectionString);
         }

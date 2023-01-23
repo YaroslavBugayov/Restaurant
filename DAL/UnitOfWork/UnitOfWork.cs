@@ -11,6 +11,7 @@ namespace DAL.UnitOfWork
         private Repository<Order> orderRepository;
         private Repository<User> userRepository;
         private Repository<Pricelist> pricelistRepository;
+        private Repository<Dish> disheRepository;
 
         IRepository<User> IUnitOfWork.Users
         {
@@ -45,6 +46,18 @@ namespace DAL.UnitOfWork
                     pricelistRepository = new Repository<Pricelist>(db);
                 }
                 return pricelistRepository;
+            }
+        }
+
+        IRepository<Dish> IUnitOfWork.Dishes
+        {
+            get
+            {
+                if (disheRepository == null)
+                {
+                    disheRepository = new Repository<Dish>(db);
+                }
+                return disheRepository;
             }
         }
 

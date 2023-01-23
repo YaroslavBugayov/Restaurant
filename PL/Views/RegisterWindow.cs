@@ -13,13 +13,15 @@ namespace PL.Views
     {
         private static IUserService userServise;
         private static UserController userController;
-        public RegisterWindow()
+        private RestaurantWindow parentWindow;
+        public RegisterWindow(RestaurantWindow parentWindow)
         {
             InitializeComponent();
             NinjectModule dependencies = new NinjectDependenciesModule();
             IKernel ninjectKernel = new StandardKernel(dependencies);
             userServise = ninjectKernel.Get<IUserService>();
             userController = new UserController(userServise);
+            this.parentWindow = parentWindow;
         }
 
         private void buttonSignUp2_Click(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace PL.Views
                 if (user != null)
                 {
                     AuthorizedUserController.Set(userViewModel);
+                    parentWindow.loggedIntoAccount();
                     Close();
                 }
             }

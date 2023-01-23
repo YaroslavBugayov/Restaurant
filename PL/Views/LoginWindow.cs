@@ -20,13 +20,15 @@ namespace PL.Views
     {
         private static IUserService userServise;
         private static UserController userController;
-        public LoginWindow()
+        private RestaurantWindow parentWindow;
+        public LoginWindow(RestaurantWindow parentWindow)
         {
             InitializeComponent();
             NinjectModule dependencies = new NinjectDependenciesModule();
             IKernel ninjectKernel = new StandardKernel(dependencies);
             userServise = ninjectKernel.Get<IUserService>();
             userController = new UserController(userServise);
+            this.parentWindow = parentWindow;
         }
 
         private void LoginWindow_Load(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace PL.Views
                 if (user != null)
                 {
                     AuthorizedUserController.Set(user);
+                    parentWindow.loggedIntoAccount();
                     Close();
                 }
             }
@@ -54,14 +57,7 @@ namespace PL.Views
         {
 
         }
-
-        private void buttonSignUp_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            RegisterWindow registerWindow = new RegisterWindow();
-            registerWindow.Show();
-        }
-
+        
         private bool IsValid(string username, string password)
         {
             bool isValid = true;

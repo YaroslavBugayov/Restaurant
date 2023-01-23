@@ -21,17 +21,37 @@ namespace ConsoleApp
             //    LastName = "LName"
             //};
 
-            //// Ingredients
-            //Ingredient ingredient1 = new Ingredient { IngredientName = "Ingredient1" };
+            // Ingredients
+            Ingredient ingredient1 = new Ingredient { IngredientName = "Genetic material" };
 
             //// Sizes
             //Size size = new Size { SizeName = "Small", Weight = 100 };
             //Size size2 = new Size { SizeName = "Medium", Weight = 200 };
 
-            //// Dishes
+            // Dishes
             //Dish dish1 = new Dish
             //{
-            //    DishName = "Dish1",
+            //    DishName = "El la pasta",
+            //    Ingredients = new List<Ingredient> { ingredient1 }
+            //};
+            //Dish dish2 = new Dish
+            //{
+            //    DishName = "Herring under shuba",
+            //    Ingredients = new List<Ingredient> { ingredient1 }
+            //};
+            //Dish dish3 = new Dish
+            //{
+            //    DishName = "Pizza eight cheeses",
+            //    Ingredients = new List<Ingredient> { ingredient1 }
+            //};
+            //Dish dish4 = new Dish
+            //{
+            //    DishName = "Sushi",
+            //    Ingredients = new List<Ingredient> { ingredient1 }
+            //};
+            //Dish dish5 = new Dish
+            //{
+            //    DishName = "Corean carrot",
             //    Ingredients = new List<Ingredient> { ingredient1 }
             //};
 
@@ -58,10 +78,12 @@ namespace ConsoleApp
             //    Pricelists = new List<Pricelist> { pricelist1, pricelist2 }
             //};
 
-            //db.Users.Add(user1);
-            //db.SaveChanges();
-
-            //Console.WriteLine(db.Users.Find(3).Email);
+            //db.Dishes.Add(dish1);
+            //db.Dishes.Add(dish2);
+            //db.Dishes.Add(dish3);
+            //db.Dishes.Add(dish4);
+            //db.Dishes.Add(dish5);
+            db.SaveChanges();
         }
     }
 }
