@@ -35,6 +35,7 @@
             this.buttonSignOut = new System.Windows.Forms.Button();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.panelOrder = new System.Windows.Forms.Panel();
+            this.buttonAddOrder = new System.Windows.Forms.Button();
             this.panelSizes = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.radioButtonLarge = new System.Windows.Forms.RadioButton();
@@ -44,8 +45,8 @@
             this.comboBoxDishes = new System.Windows.Forms.ComboBox();
             this.listBoxOrders = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonAddOrder = new System.Windows.Forms.Button();
             this.buttonRemoveOrder = new System.Windows.Forms.Button();
+            this.buttonSendOrders = new System.Windows.Forms.Button();
             this.panelOrder.SuspendLayout();
             this.panelSizes.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +122,16 @@
             this.panelOrder.Size = new System.Drawing.Size(234, 204);
             this.panelOrder.TabIndex = 6;
             // 
+            // buttonAddOrder
+            // 
+            this.buttonAddOrder.Location = new System.Drawing.Point(79, 170);
+            this.buttonAddOrder.Name = "buttonAddOrder";
+            this.buttonAddOrder.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddOrder.TabIndex = 14;
+            this.buttonAddOrder.Text = "Add";
+            this.buttonAddOrder.UseVisualStyleBackColor = true;
+            this.buttonAddOrder.Click += new System.EventHandler(this.buttonAddOrder_Click);
+            // 
             // panelSizes
             // 
             this.panelSizes.Controls.Add(this.label2);
@@ -191,7 +202,7 @@
             this.comboBoxDishes.FormattingEnabled = true;
             this.comboBoxDishes.Location = new System.Drawing.Point(3, 23);
             this.comboBoxDishes.Name = "comboBoxDishes";
-            this.comboBoxDishes.Size = new System.Drawing.Size(164, 24);
+            this.comboBoxDishes.Size = new System.Drawing.Size(228, 24);
             this.comboBoxDishes.TabIndex = 7;
             // 
             // listBoxOrders
@@ -212,16 +223,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Your orders";
             // 
-            // buttonAddOrder
-            // 
-            this.buttonAddOrder.Location = new System.Drawing.Point(79, 170);
-            this.buttonAddOrder.Name = "buttonAddOrder";
-            this.buttonAddOrder.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddOrder.TabIndex = 14;
-            this.buttonAddOrder.Text = "Add";
-            this.buttonAddOrder.UseVisualStyleBackColor = true;
-            this.buttonAddOrder.Click += new System.EventHandler(this.buttonAddOrder_Click);
-            // 
             // buttonRemoveOrder
             // 
             this.buttonRemoveOrder.Location = new System.Drawing.Point(506, 288);
@@ -232,11 +233,22 @@
             this.buttonRemoveOrder.UseVisualStyleBackColor = true;
             this.buttonRemoveOrder.Click += new System.EventHandler(this.buttonRemoveOrder_Click);
             // 
+            // buttonSendOrders
+            // 
+            this.buttonSendOrders.Location = new System.Drawing.Point(281, 361);
+            this.buttonSendOrders.Name = "buttonSendOrders";
+            this.buttonSendOrders.Size = new System.Drawing.Size(258, 43);
+            this.buttonSendOrders.TabIndex = 10;
+            this.buttonSendOrders.Text = "Send orders";
+            this.buttonSendOrders.UseVisualStyleBackColor = true;
+            this.buttonSendOrders.Click += new System.EventHandler(this.buttonSendOrders_Click);
+            // 
             // RestaurantWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonSendOrders);
             this.Controls.Add(this.buttonRemoveOrder);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBoxOrders);
@@ -279,6 +291,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonAddOrder;
         private System.Windows.Forms.Button buttonRemoveOrder;
+        private System.Windows.Forms.Button buttonSendOrders;
     }
 }
 

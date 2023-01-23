@@ -8,6 +8,9 @@ using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using BLL.Services;
+using Ninject.Infrastructure.Language;
+using System.Linq;
+using System.Diagnostics;
 
 namespace PL
 {
@@ -20,7 +23,8 @@ namespace PL
         private static IOrderService orderService;
         private static OrderController orderController;
 
-        private List<string> dishes;
+        private Dictionary<string, int> dishes;
+        private List<string> dishNames;
         private string size;
 
         public RestaurantWindow()
@@ -42,9 +46,14 @@ namespace PL
             buttonSignOut.Hide();
             panelOrder.Hide();
 
-            dishes = dishController.GetDishNames();
-            
-            comboBoxDishes.Items.AddRange(dishes.ToArray());
+            dishes = dishController.GetDishes();
+            dishNames = dishes.Keys.ToList();
+
+            foreach (var elem in dishes)
+            {
+                comboBoxDishes.Items.Add(string.Format("{0} - {1} hryvnias",
+                    elem.Key, elem.Value));
+            }
             radioButtonSmall.Checked = true;
         }
 
@@ -89,14 +98,14 @@ namespace PL
         private void buttonAddOrder_Click(object sender, EventArgs e)
         {
             panelOrder.Hide();
-            var dish = dishes[comboBoxDishes.SelectedIndex];
+            var dish = dishNames[comboBoxDishes.SelectedIndex];
             var size = this.size;
             listBoxOrders.Items.Add(string.Format("{0} {1}", dish, size));
         }
 
         private void buttonRemoveOrder_Click(object sender, EventArgs e)
         {
-            listBoxOrders.Items.RemoveAt(comboBoxDishes.SelectedIndex);
+            listBoxOrders.Items.RemoveAt(listBoxOrders.SelectedIndex);
         }
 
         private void radioButtonSmall_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +121,16 @@ namespace PL
         private void radioButtonLarge_CheckedChanged(object sender, EventArgs e)
         {
             size = "Large";
+        }
+
+        private void buttonSendOrders_Click(object sender, EventArgs e)
+        {
+            if (AuthorizedUserController.Get() == null)
+            {
+                MessageBox.Show("Please authorize before", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
+            listBoxOrders.Items.Clear();
         }
     }
 }

@@ -28,32 +28,37 @@ namespace ConsoleApp
             //Size size = new Size { SizeName = "Small", Weight = 100 };
             //Size size2 = new Size { SizeName = "Medium", Weight = 200 };
 
-            // Dishes
-            //Dish dish1 = new Dish
-            //{
-            //    DishName = "El la pasta",
-            //    Ingredients = new List<Ingredient> { ingredient1 }
-            //};
-            //Dish dish2 = new Dish
-            //{
-            //    DishName = "Herring under shuba",
-            //    Ingredients = new List<Ingredient> { ingredient1 }
-            //};
-            //Dish dish3 = new Dish
-            //{
-            //    DishName = "Pizza eight cheeses",
-            //    Ingredients = new List<Ingredient> { ingredient1 }
-            //};
-            //Dish dish4 = new Dish
-            //{
-            //    DishName = "Sushi",
-            //    Ingredients = new List<Ingredient> { ingredient1 }
-            //};
-            //Dish dish5 = new Dish
-            //{
-            //    DishName = "Corean carrot",
-            //    Ingredients = new List<Ingredient> { ingredient1 }
-            //};
+           // Dishes
+           Dish dish1 = new Dish
+           {
+               DishName = "El la pasta",
+               Price = 300,
+               Ingredients = new List<Ingredient> { ingredient1 }
+           };
+            Dish dish2 = new Dish
+            {
+                DishName = "Herring under shuba",
+                Price = 200,
+                Ingredients = new List<Ingredient> { ingredient1 }
+            };
+            Dish dish3 = new Dish
+            {
+                DishName = "Pizza eight cheeses",
+                Price = 150,
+                Ingredients = new List<Ingredient> { ingredient1 }
+            };
+            Dish dish4 = new Dish
+            {
+                DishName = "Sushi",
+                Price = 500,
+                Ingredients = new List<Ingredient> { ingredient1 }
+            };
+            Dish dish5 = new Dish
+            {
+                DishName = "Corean carrot",
+                Price = 20,
+                Ingredients = new List<Ingredient> { ingredient1 }
+            };
 
             //// Pricelists
             //Pricelist pricelist1 = new Pricelist
@@ -78,11 +83,11 @@ namespace ConsoleApp
             //    Pricelists = new List<Pricelist> { pricelist1, pricelist2 }
             //};
 
-            //db.Dishes.Add(dish1);
-            //db.Dishes.Add(dish2);
-            //db.Dishes.Add(dish3);
-            //db.Dishes.Add(dish4);
-            //db.Dishes.Add(dish5);
+            db.Dishes.Add(dish1);
+            db.Dishes.Add(dish2);
+            db.Dishes.Add(dish3);
+            db.Dishes.Add(dish4);
+            db.Dishes.Add(dish5);
             db.SaveChanges();
         }
     }

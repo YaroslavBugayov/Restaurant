@@ -16,14 +16,14 @@ namespace PL.Controllers
             this.dishService = dishService;
         }
 
-        public List<string> GetDishNames()
+        public Dictionary<string, int> GetDishes()
         {
-            List<string> dishes = new List<string>();
+            Dictionary<string, int> dishes = new Dictionary<string, int>();
             try
             {
                 foreach (DishDTO dish in dishService.GetDishes())
                 {
-                    dishes.Add(dish.DishName);
+                    dishes.Add(dish.DishName, dish.Price);
                 }
             } catch(Exception ex)
             {

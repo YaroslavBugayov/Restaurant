@@ -11,6 +11,7 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public string DishName { get; set; }
+        public int Price { get; set; }
         public ICollection<Pricelist> Pricelists { get; set; }
         public ICollection<Ingredient> Ingredients { get; set;}
     }

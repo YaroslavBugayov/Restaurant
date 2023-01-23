@@ -10,5 +10,6 @@ namespace BLL.DTO
     {
         public int Id { get; set; }
         public string DishName { get; set; }
+        public int Price { get; set; }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BLL.DTO;
 
 namespace PL.Models
 {
@@ -11,6 +9,6 @@ namespace PL.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int Price { get; set; }
-        public ICollection<PricelistViewModel> pricelistViewModels { get; set; }
+        public ICollection<PricelistDTO> pricelistDTOs { get; set; }
     }
 }
