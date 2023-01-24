@@ -10,7 +10,7 @@ namespace BLL.DTO
     public class OrderDTO
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public UserDTO User { get; set; }
         public int Price { get; set; }
         public ICollection<PricelistDTO> PricelistDTOs { get; set; }
     }

@@ -37,11 +37,6 @@
             this.panelOrder = new System.Windows.Forms.Panel();
             this.labelResultOrder = new System.Windows.Forms.Label();
             this.buttonAddOrder = new System.Windows.Forms.Button();
-            this.panelSizes = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.radioButtonLarge = new System.Windows.Forms.RadioButton();
-            this.radioButtonSmall = new System.Windows.Forms.RadioButton();
-            this.radioButtonMedium = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxDishes = new System.Windows.Forms.ComboBox();
             this.listBoxOrders = new System.Windows.Forms.ListBox();
@@ -50,8 +45,8 @@
             this.buttonSendOrders = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.labelPrice = new System.Windows.Forms.Label();
+            this.buttonPreviousOrders = new System.Windows.Forms.Button();
             this.panelOrder.SuspendLayout();
-            this.panelSizes.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelWelcome
@@ -106,7 +101,7 @@
             // 
             // buttonCreateOrder
             // 
-            this.buttonCreateOrder.Location = new System.Drawing.Point(125, 81);
+            this.buttonCreateOrder.Location = new System.Drawing.Point(139, 81);
             this.buttonCreateOrder.Name = "buttonCreateOrder";
             this.buttonCreateOrder.Size = new System.Drawing.Size(200, 32);
             this.buttonCreateOrder.TabIndex = 5;
@@ -118,87 +113,30 @@
             // 
             this.panelOrder.Controls.Add(this.labelResultOrder);
             this.panelOrder.Controls.Add(this.buttonAddOrder);
-            this.panelOrder.Controls.Add(this.panelSizes);
             this.panelOrder.Controls.Add(this.label1);
             this.panelOrder.Controls.Add(this.comboBoxDishes);
-            this.panelOrder.Location = new System.Drawing.Point(27, 119);
+            this.panelOrder.Location = new System.Drawing.Point(69, 119);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(420, 204);
+            this.panelOrder.Size = new System.Drawing.Size(332, 220);
             this.panelOrder.TabIndex = 6;
             // 
             // labelResultOrder
             // 
             this.labelResultOrder.AutoSize = true;
-            this.labelResultOrder.Location = new System.Drawing.Point(251, 23);
+            this.labelResultOrder.Location = new System.Drawing.Point(14, 64);
             this.labelResultOrder.Name = "labelResultOrder";
             this.labelResultOrder.Size = new System.Drawing.Size(0, 16);
             this.labelResultOrder.TabIndex = 15;
             // 
             // buttonAddOrder
             // 
-            this.buttonAddOrder.Location = new System.Drawing.Point(79, 170);
+            this.buttonAddOrder.Location = new System.Drawing.Point(240, 24);
             this.buttonAddOrder.Name = "buttonAddOrder";
             this.buttonAddOrder.Size = new System.Drawing.Size(75, 23);
             this.buttonAddOrder.TabIndex = 14;
             this.buttonAddOrder.Text = "Add";
             this.buttonAddOrder.UseVisualStyleBackColor = true;
             this.buttonAddOrder.Click += new System.EventHandler(this.buttonAddOrder_Click);
-            // 
-            // panelSizes
-            // 
-            this.panelSizes.Controls.Add(this.label2);
-            this.panelSizes.Controls.Add(this.radioButtonLarge);
-            this.panelSizes.Controls.Add(this.radioButtonSmall);
-            this.panelSizes.Controls.Add(this.radioButtonMedium);
-            this.panelSizes.Location = new System.Drawing.Point(3, 64);
-            this.panelSizes.Name = "panelSizes";
-            this.panelSizes.Size = new System.Drawing.Size(200, 100);
-            this.panelSizes.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Select size";
-            // 
-            // radioButtonLarge
-            // 
-            this.radioButtonLarge.AutoSize = true;
-            this.radioButtonLarge.Location = new System.Drawing.Point(3, 71);
-            this.radioButtonLarge.Name = "radioButtonLarge";
-            this.radioButtonLarge.Size = new System.Drawing.Size(63, 20);
-            this.radioButtonLarge.TabIndex = 11;
-            this.radioButtonLarge.TabStop = true;
-            this.radioButtonLarge.Text = "Large";
-            this.radioButtonLarge.UseVisualStyleBackColor = true;
-            this.radioButtonLarge.CheckedChanged += new System.EventHandler(this.radioButtonLarge_CheckedChanged);
-            // 
-            // radioButtonSmall
-            // 
-            this.radioButtonSmall.AutoSize = true;
-            this.radioButtonSmall.Location = new System.Drawing.Point(3, 19);
-            this.radioButtonSmall.Name = "radioButtonSmall";
-            this.radioButtonSmall.Size = new System.Drawing.Size(62, 20);
-            this.radioButtonSmall.TabIndex = 9;
-            this.radioButtonSmall.TabStop = true;
-            this.radioButtonSmall.Text = "Small";
-            this.radioButtonSmall.UseVisualStyleBackColor = true;
-            this.radioButtonSmall.CheckedChanged += new System.EventHandler(this.radioButtonSmall_CheckedChanged);
-            // 
-            // radioButtonMedium
-            // 
-            this.radioButtonMedium.AutoSize = true;
-            this.radioButtonMedium.Location = new System.Drawing.Point(3, 45);
-            this.radioButtonMedium.Name = "radioButtonMedium";
-            this.radioButtonMedium.Size = new System.Drawing.Size(76, 20);
-            this.radioButtonMedium.TabIndex = 10;
-            this.radioButtonMedium.TabStop = true;
-            this.radioButtonMedium.Text = "Medium";
-            this.radioButtonMedium.UseVisualStyleBackColor = true;
-            this.radioButtonMedium.CheckedChanged += new System.EventHandler(this.radioButtonMedium_CheckedChanged);
             // 
             // label1
             // 
@@ -274,11 +212,21 @@
             this.labelPrice.TabIndex = 12;
             this.labelPrice.Text = "0";
             // 
+            // buttonPreviousOrders
+            // 
+            this.buttonPreviousOrders.Location = new System.Drawing.Point(634, 366);
+            this.buttonPreviousOrders.Name = "buttonPreviousOrders";
+            this.buttonPreviousOrders.Size = new System.Drawing.Size(154, 33);
+            this.buttonPreviousOrders.TabIndex = 13;
+            this.buttonPreviousOrders.Text = "See previous orders";
+            this.buttonPreviousOrders.UseVisualStyleBackColor = true;
+            // 
             // RestaurantWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonPreviousOrders);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonSendOrders);
@@ -297,8 +245,6 @@
             this.Load += new System.EventHandler(this.Application_Load);
             this.panelOrder.ResumeLayout(false);
             this.panelOrder.PerformLayout();
-            this.panelSizes.ResumeLayout(false);
-            this.panelSizes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,11 +261,6 @@
         private System.Windows.Forms.Panel panelOrder;
         private System.Windows.Forms.ComboBox comboBoxDishes;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelSizes;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButtonLarge;
-        private System.Windows.Forms.RadioButton radioButtonSmall;
-        private System.Windows.Forms.RadioButton radioButtonMedium;
         private System.Windows.Forms.ListBox listBoxOrders;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonAddOrder;
@@ -328,6 +269,7 @@
         private System.Windows.Forms.Label labelResultOrder;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.Button buttonPreviousOrders;
     }
 }
 

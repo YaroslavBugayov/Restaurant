@@ -3,6 +3,7 @@ using AutoMapper.Internal;
 using BLL.DTO;
 using DAL.Entities;
 using DAL.Interfaces;
+using BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +33,23 @@ namespace BLL.Services
         {
             Order order = new Order
             {
-                UserId = ordedDTO.UserId,
-                Pricelists = (ICollection<Pricelist>)ordedDTO.PricelistDTOs,
-                Price = ordedDTO.PricelistDTOs.Sum(pl => pl.Price),
+                User = MapperService.UserMapperDTOtoEntity.Map<User>(ordedDTO.User),
+                Pricelists = PricelistDTOtoEntity(ordedDTO.PricelistDTOs),
+                Price = ordedDTO.Price,
             };
             Database.Orders.Create(order);
             Database.Save();
         }
+
+        private List<Pricelist> PricelistDTOtoEntity(ICollection<PricelistDTO> listDTOs)
+        {
+            var list = new List<Pricelist>();
+            foreach (var item in listDTOs)
+            {
+                list.Add(MapperService.PricelistDTOtoEntity.Map<Pricelist>(item));
+            }
+            return list;
+        }
+
     }
 }

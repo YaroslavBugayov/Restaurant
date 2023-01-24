@@ -6,14 +6,10 @@ using PL.Controllers;
 using PL.Views;
 using System;
 using System.Windows.Forms;
-using System.Collections;
 using System.Collections.Generic;
 using BLL.Services;
-using Ninject.Infrastructure.Language;
 using System.Linq;
-using System.Diagnostics;
 using PL.Models;
-using BLL.DTO;
 
 namespace PL
 {
@@ -29,9 +25,8 @@ namespace PL
         private static PricelistController pricelistController;
 
         private List<PricelistViewModel> pricelists;
-        private string size;
-        private List<KeyValuePair<string, int>> listBoxOrdersList = 
-            new List<KeyValuePair<string, int>>();
+        private List<PricelistViewModel> listBoxOrdersList = 
+            new List<PricelistViewModel>();
 
         public RestaurantWindow()
         {
@@ -51,6 +46,7 @@ namespace PL
             labelUserName.Text = "Please log in to your account";
             buttonSignOut.Hide();
             panelOrder.Hide();
+            buttonPreviousOrders.Hide();
 
             pricelists = pricelistController.GetPricelists().ToList();
             foreach (var pricelist in pricelists)
@@ -58,8 +54,6 @@ namespace PL
                 comboBoxDishes.Items.Add(string.Format("{0} {1}",
                     pricelist.Size.SizeName, pricelist.Dish.DishName));
             }
-
-            radioButtonSmall.Checked = true;
         }
 
         private void buttonSignIn_Click(object sender, EventArgs e)
@@ -83,6 +77,7 @@ namespace PL
             buttonSignIn.Hide();
             buttonSignUp.Hide();
             buttonSignOut.Show();
+            buttonPreviousOrders.Show();
         }
 
         private void buttonSignOut_Click(object sender, EventArgs e)
@@ -93,6 +88,7 @@ namespace PL
             buttonSignIn.Show();
             buttonSignUp.Show();
             buttonSignOut.Hide();
+            buttonPreviousOrders.Show();
         }
 
         private void buttonCreateOrder_Click(object sender, EventArgs e)
@@ -105,11 +101,7 @@ namespace PL
             panelOrder.Hide();
             var dish = comboBoxDishes.SelectedItem.ToString();
             listBoxOrders.Items.Add(string.Format(dish));
-            var tempPrice = pricelists[comboBoxDishes.SelectedIndex].Price;
-            
-            listBoxOrdersList.Add(
-                new KeyValuePair<string, int>(comboBoxDishes.SelectedText, tempPrice)
-                );
+            listBoxOrdersList.Add(pricelists[comboBoxDishes.SelectedIndex]);
             setPriceText();
         }
 
@@ -120,21 +112,6 @@ namespace PL
             setPriceText();
         }
 
-        private void radioButtonSmall_CheckedChanged(object sender, EventArgs e)
-        {
-            size = "Small";
-        }
-
-        private void radioButtonMedium_CheckedChanged(object sender, EventArgs e)
-        {
-            size = "Medium";
-        }
-
-        private void radioButtonLarge_CheckedChanged(object sender, EventArgs e)
-        {
-            size = "Large";
-        }
-
         private void buttonSendOrders_Click(object sender, EventArgs e)
         {
             if (AuthorizedUserController.Get() == null)
@@ -143,12 +120,13 @@ namespace PL
                 return; 
             }
 
-            foreach (var item in listBoxOrders.Items)
+            orderController.MakeOrder(new OrderViewModel()
             {
-                //Debug.WriteLine(dishController.GetDishDTO(item.ToString()));
-            }
+                Price = getPrice(),
+                pricelistViewModels = listBoxOrdersList,
+                User = AuthorizedUserController.Get(),
+            });
 
-            CreatingOrderController.Clear();
             listBoxOrders.Items.Clear();
         }
 
@@ -161,12 +139,17 @@ namespace PL
 
         private void setPriceText()
         {
+            labelPrice.Text = getPrice().ToString();
+        }
+
+        private int getPrice()
+        {
             int resultPrice = 0;
             foreach (var item in listBoxOrdersList)
             {
-                resultPrice += item.Value;
+                resultPrice += item.Price;
             }
-            labelPrice.Text = resultPrice.ToString();
+            return resultPrice;
         }
     }
 }

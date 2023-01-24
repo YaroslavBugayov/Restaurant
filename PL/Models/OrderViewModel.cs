@@ -7,8 +7,8 @@ namespace PL.Models
     public class OrderViewModel
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public UserViewModel User { get; set; }
         public int Price { get; set; }
-        public ICollection<PricelistDTO> pricelistDTOs { get; set; }
+        public ICollection<PricelistViewModel> pricelistViewModels { get; set; }
     }
 }
