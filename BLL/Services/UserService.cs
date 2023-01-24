@@ -54,7 +54,7 @@ namespace BLL.Services
 
         public UserDTO GetUserByUsername(string username)
         {
-            var user = Database.Users.GetByLogin(username);
+            var user = Database.Users.Find(_user => _user.Username.Equals(username)).FirstOrDefault();
             if (user != null) 
             {
                 return MapperService.UserMapper.Map<UserDTO>(user);

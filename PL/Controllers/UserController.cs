@@ -41,7 +41,7 @@ namespace PL.Controllers
 
                 if (userDTO.Password != password) 
                 {
-                    throw new Exception();
+                    
                 }
 
                 userViewModel = DTOtoViewModel(userDTO);

@@ -6,11 +6,14 @@ using PL.Controllers;
 using PL.Views;
 using System;
 using System.Windows.Forms;
+using System.Collections;
 using System.Collections.Generic;
 using BLL.Services;
 using Ninject.Infrastructure.Language;
 using System.Linq;
 using System.Diagnostics;
+using PL.Models;
+using BLL.DTO;
 
 namespace PL
 {
@@ -22,10 +25,13 @@ namespace PL
         private static DishController dishController;
         private static IOrderService orderService;
         private static OrderController orderController;
+        private static IPricelistService pricelistService;
+        private static PricelistController pricelistController;
 
-        private Dictionary<string, int> dishes;
-        private List<string> dishNames;
+        private List<PricelistViewModel> pricelists;
         private string size;
+        private List<KeyValuePair<string, int>> listBoxOrdersList = 
+            new List<KeyValuePair<string, int>>();
 
         public RestaurantWindow()
         {
@@ -34,10 +40,10 @@ namespace PL
             IKernel ninjectKernel = new StandardKernel(dependencies);
             userService = ninjectKernel.Get<IUserService>();
             userController = new UserController(userService);
-            dishService = ninjectKernel.Get<IDishService>();
-            dishController = new DishController(dishService);
             orderService = ninjectKernel.Get<IOrderService>();
             orderController = new OrderController(orderService);
+            pricelistService = ninjectKernel.Get<IPricelistService>();
+            pricelistController = new PricelistController(pricelistService);
         }
 
         private void Application_Load(object sender, EventArgs e)
@@ -46,14 +52,13 @@ namespace PL
             buttonSignOut.Hide();
             panelOrder.Hide();
 
-            dishes = dishController.GetDishes();
-            dishNames = dishes.Keys.ToList();
-
-            foreach (var elem in dishes)
+            pricelists = pricelistController.GetPricelists().ToList();
+            foreach (var pricelist in pricelists)
             {
-                comboBoxDishes.Items.Add(string.Format("{0} - {1} hryvnias",
-                    elem.Key, elem.Value));
+                comboBoxDishes.Items.Add(string.Format("{0} {1}",
+                    pricelist.Size.SizeName, pricelist.Dish.DishName));
             }
+
             radioButtonSmall.Checked = true;
         }
 
@@ -98,14 +103,21 @@ namespace PL
         private void buttonAddOrder_Click(object sender, EventArgs e)
         {
             panelOrder.Hide();
-            var dish = dishNames[comboBoxDishes.SelectedIndex];
-            var size = this.size;
-            listBoxOrders.Items.Add(string.Format("{0} {1}", dish, size));
+            var dish = comboBoxDishes.SelectedItem.ToString();
+            listBoxOrders.Items.Add(string.Format(dish));
+            var tempPrice = pricelists[comboBoxDishes.SelectedIndex].Price;
+            
+            listBoxOrdersList.Add(
+                new KeyValuePair<string, int>(comboBoxDishes.SelectedText, tempPrice)
+                );
+            setPriceText();
         }
 
         private void buttonRemoveOrder_Click(object sender, EventArgs e)
         {
+            listBoxOrdersList.RemoveAt(listBoxOrders.SelectedIndex);
             listBoxOrders.Items.RemoveAt(listBoxOrders.SelectedIndex);
+            setPriceText();
         }
 
         private void radioButtonSmall_CheckedChanged(object sender, EventArgs e)
@@ -130,7 +142,31 @@ namespace PL
                 MessageBox.Show("Please authorize before", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; 
             }
+
+            foreach (var item in listBoxOrders.Items)
+            {
+                //Debug.WriteLine(dishController.GetDishDTO(item.ToString()));
+            }
+
+            CreatingOrderController.Clear();
             listBoxOrders.Items.Clear();
+        }
+
+        private void comboBoxDishes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = pricelists[comboBoxDishes.SelectedIndex];
+            labelResultOrder.Text = string.Format("{0}\n{1}\n{2} grams\n{3} hryvnias",
+               item.Dish.DishName, item.Size.SizeName, item.Size.Weight, item.Price);
+        }
+
+        private void setPriceText()
+        {
+            int resultPrice = 0;
+            foreach (var item in listBoxOrdersList)
+            {
+                resultPrice += item.Value;
+            }
+            labelPrice.Text = resultPrice.ToString();
         }
     }
 }

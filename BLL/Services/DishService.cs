@@ -25,6 +25,31 @@ namespace BLL.Services
             return mapper.Map<IEnumerable<Dish>, List<DishDTO>>(Database.Dishes.GetAll());
         }
 
+        public DishDTO GetDish(string dishName)
+        {
+            var dish = Database.Dishes.Find(_dish => _dish.DishName.Equals(dishName)).FirstOrDefault();
+            if (dish != null)
+            {
+                return MapperService.DishMapper.Map<DishDTO>(dish);
+            } else
+            {
+                throw new Exception();
+            }
+        }
+
+        public DishDTO GetDish(int dishId)
+        {
+            var dish = Database.Dishes.Find(_dish => _dish.Id.Equals(dishId)).FirstOrDefault();
+            if (dish != null)
+            {
+                return MapperService.DishMapper.Map<DishDTO>(dish);
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
         public void Dispose()
         {
             Database.Dispose();

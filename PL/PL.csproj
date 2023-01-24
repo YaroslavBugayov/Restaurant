@@ -90,7 +90,10 @@
     <Compile Include="Controllers\AuthorizedUserController.cs" />
     <Compile Include="Controllers\CreatingOrderController.cs" />
     <Compile Include="Controllers\DishController.cs" />
+    <Compile Include="Controllers\PricelistController.cs" />
+    <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Models\PricelistViewModel.cs" />
     <Compile Include="Views\RestaurantWindow.cs">
       <SubType>Form</SubType>
     </Compile>

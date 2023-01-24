@@ -18,6 +18,8 @@ namespace BLL.Infrastructure
             Bind<IUserService>().To<UserService>();
             Bind<IDishService>().To<DishService>();
             Bind<IOrderService>().To<OrderService>();
+            Bind<IPricelistService>().To<PricelistService>();
+            Bind<ISizeService>().To<SizeService>();
             Bind<IUnitOfWork>().To<UnitOfWork>();
             //Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connectionString);
         }

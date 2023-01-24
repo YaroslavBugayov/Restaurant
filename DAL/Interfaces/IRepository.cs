@@ -11,7 +11,6 @@ namespace DAL.Interfaces
     {
         IEnumerable<T> GetAll();
         T GetById(int id);
-        T GetByLogin(string username);
         void Create(T item);
         IEnumerable<T> Find(Expression<Func<T, bool>> exp);
         void Update(T item);

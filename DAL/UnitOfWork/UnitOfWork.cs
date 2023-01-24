@@ -11,7 +11,8 @@ namespace DAL.UnitOfWork
         private Repository<Order> orderRepository;
         private Repository<User> userRepository;
         private Repository<Pricelist> pricelistRepository;
-        private Repository<Dish> disheRepository;
+        private Repository<Dish> dishRepository;
+        private Repository<Size> sizeRepository;
 
         IRepository<User> IUnitOfWork.Users
         {
@@ -53,11 +54,23 @@ namespace DAL.UnitOfWork
         {
             get
             {
-                if (disheRepository == null)
+                if (dishRepository == null)
                 {
-                    disheRepository = new Repository<Dish>(db);
+                    dishRepository = new Repository<Dish>(db);
                 }
-                return disheRepository;
+                return dishRepository;
+            }
+        }
+
+        IRepository<Size> IUnitOfWork.Sizes
+        {
+            get
+            {
+                if (sizeRepository == null)
+                {
+                    sizeRepository = new Repository<Size>(db);
+                }
+                return sizeRepository;
             }
         }
 

@@ -16,20 +16,30 @@ namespace PL.Controllers
             this.dishService = dishService;
         }
 
-        public Dictionary<string, int> GetDishes()
+        public ICollection<string> GetDishes()
         {
-            Dictionary<string, int> dishes = new Dictionary<string, int>();
+            ICollection<string> dishes = new List<string>();
             try
             {
                 foreach (DishDTO dish in dishService.GetDishes())
                 {
-                    dishes.Add(dish.DishName, dish.Price);
+                    dishes.Add(dish.DishName);
                 }
             } catch(Exception ex)
             {
 
             }
             return dishes;
+        }
+
+        public DishDTO GetDishDTO(string dishName)
+        {
+            return dishService.GetDish(dishName);
+        }
+
+        public DishDTO GetDishDTO(int id)
+        {
+            return dishService.GetDish(id);
         }
     }
 }

@@ -35,6 +35,7 @@
             this.buttonSignOut = new System.Windows.Forms.Button();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.panelOrder = new System.Windows.Forms.Panel();
+            this.labelResultOrder = new System.Windows.Forms.Label();
             this.buttonAddOrder = new System.Windows.Forms.Button();
             this.panelSizes = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttonRemoveOrder = new System.Windows.Forms.Button();
             this.buttonSendOrders = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelPrice = new System.Windows.Forms.Label();
             this.panelOrder.SuspendLayout();
             this.panelSizes.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +106,7 @@
             // 
             // buttonCreateOrder
             // 
-            this.buttonCreateOrder.Location = new System.Drawing.Point(177, 81);
+            this.buttonCreateOrder.Location = new System.Drawing.Point(125, 81);
             this.buttonCreateOrder.Name = "buttonCreateOrder";
             this.buttonCreateOrder.Size = new System.Drawing.Size(200, 32);
             this.buttonCreateOrder.TabIndex = 5;
@@ -113,14 +116,23 @@
             // 
             // panelOrder
             // 
+            this.panelOrder.Controls.Add(this.labelResultOrder);
             this.panelOrder.Controls.Add(this.buttonAddOrder);
             this.panelOrder.Controls.Add(this.panelSizes);
             this.panelOrder.Controls.Add(this.label1);
             this.panelOrder.Controls.Add(this.comboBoxDishes);
-            this.panelOrder.Location = new System.Drawing.Point(160, 119);
+            this.panelOrder.Location = new System.Drawing.Point(27, 119);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(234, 204);
+            this.panelOrder.Size = new System.Drawing.Size(420, 204);
             this.panelOrder.TabIndex = 6;
+            // 
+            // labelResultOrder
+            // 
+            this.labelResultOrder.AutoSize = true;
+            this.labelResultOrder.Location = new System.Drawing.Point(251, 23);
+            this.labelResultOrder.Name = "labelResultOrder";
+            this.labelResultOrder.Size = new System.Drawing.Size(0, 16);
+            this.labelResultOrder.TabIndex = 15;
             // 
             // buttonAddOrder
             // 
@@ -204,6 +216,7 @@
             this.comboBoxDishes.Name = "comboBoxDishes";
             this.comboBoxDishes.Size = new System.Drawing.Size(228, 24);
             this.comboBoxDishes.TabIndex = 7;
+            this.comboBoxDishes.SelectedIndexChanged += new System.EventHandler(this.comboBoxDishes_SelectedIndexChanged);
             // 
             // listBoxOrders
             // 
@@ -211,13 +224,13 @@
             this.listBoxOrders.ItemHeight = 16;
             this.listBoxOrders.Location = new System.Drawing.Point(453, 119);
             this.listBoxOrders.Name = "listBoxOrders";
-            this.listBoxOrders.Size = new System.Drawing.Size(175, 164);
+            this.listBoxOrders.Size = new System.Drawing.Size(250, 164);
             this.listBoxOrders.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(503, 89);
+            this.label3.Location = new System.Drawing.Point(537, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 16);
             this.label3.TabIndex = 8;
@@ -225,7 +238,7 @@
             // 
             // buttonRemoveOrder
             // 
-            this.buttonRemoveOrder.Location = new System.Drawing.Point(506, 288);
+            this.buttonRemoveOrder.Location = new System.Drawing.Point(539, 289);
             this.buttonRemoveOrder.Name = "buttonRemoveOrder";
             this.buttonRemoveOrder.Size = new System.Drawing.Size(75, 23);
             this.buttonRemoveOrder.TabIndex = 9;
@@ -243,11 +256,31 @@
             this.buttonSendOrders.UseVisualStyleBackColor = true;
             this.buttonSendOrders.Click += new System.EventHandler(this.buttonSendOrders_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(278, 342);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 16);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Result price:";
+            // 
+            // labelPrice
+            // 
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Location = new System.Drawing.Point(358, 342);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(14, 16);
+            this.labelPrice.TabIndex = 12;
+            this.labelPrice.Text = "0";
+            // 
             // RestaurantWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelPrice);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonSendOrders);
             this.Controls.Add(this.buttonRemoveOrder);
             this.Controls.Add(this.label3);
@@ -292,6 +325,9 @@
         private System.Windows.Forms.Button buttonAddOrder;
         private System.Windows.Forms.Button buttonRemoveOrder;
         private System.Windows.Forms.Button buttonSendOrders;
+        private System.Windows.Forms.Label labelResultOrder;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelPrice;
     }
 }
 

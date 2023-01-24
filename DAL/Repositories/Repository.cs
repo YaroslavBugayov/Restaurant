@@ -49,11 +49,6 @@ namespace DAL.Repositories
             return dbSet.Find(id);
         }
 
-        public T GetByLogin(string username)
-        {
-            return dbSet.Find(username);
-        }
-
         public void Update(T item)
         {
             db.Entry(item).State = EntityState.Modified;
