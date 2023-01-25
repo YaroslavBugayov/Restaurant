@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace PL.Views
 {
@@ -49,6 +50,9 @@ namespace PL.Views
                     AuthorizedUserController.Set(user);
                     parentWindow.loggedIntoAccount();
                     Close();
+                } else
+                {
+                    MessageBox.Show("Invalid password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

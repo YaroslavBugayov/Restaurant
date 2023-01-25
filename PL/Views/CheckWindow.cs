@@ -31,14 +31,14 @@ namespace PL.Views
 
         private void CheckWindow_Load(object sender, EventArgs e)
         {
-            //foreach (var order in orderController.GetUsersOrders())
-            //{
-            //    foreach (var pricelist in order.PricelistDTOs)
-            //    {
-            //        listBoxOrders.Items.Add(pricelist.DishId);
-            //    }
-            //    //listBoxOrders.Items.Add(item);
-            //}
+            foreach (var order in orderController.GetUsersOrders())
+            {
+                foreach (var pricelist in order.pricelistViewModels)
+                {
+                    listBoxOrders.Items.Add(pricelist.Dish.DishName);
+                }
+                //listBoxOrders.Items.Add(item);
+            }
 
         }
 

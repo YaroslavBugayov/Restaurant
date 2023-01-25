@@ -128,8 +128,8 @@ namespace PL
                 User = AuthorizedUserController.Get(),
             });
 
-            setPriceText();
             listBoxOrders.Items.Clear();
+            setPriceText();
         }
 
         private void comboBoxDishes_SelectedIndexChanged(object sender, EventArgs e)

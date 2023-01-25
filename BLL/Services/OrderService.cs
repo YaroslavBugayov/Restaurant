@@ -23,14 +23,10 @@ namespace BLL.Services
             Database.Dispose();
         }
 
-        public IEnumerable<OrderDTO> GetUsersOrders()
+        public IEnumerable<OrderDTO> GetUsersOrders(int id)
         {
-            //return MapperService
-            //    .FillOrdersListMapper
-            //    .Map<IEnumerable<Order>, List<OrderDTO>>
-            //    (Database.Orders.GetAll());
             var orderDTOs = new List<OrderDTO>();
-            foreach (var order in Database.Orders.GetAll()) 
+            foreach (var order in Database.Orders.GetAll().Where(o => o.UserId.Equals(id))) 
             {
                 orderDTOs.Add(new OrderDTO()
                 {
@@ -47,7 +43,7 @@ namespace BLL.Services
         {
             Order order = new Order
             {
-                User = MapperService.UserDTOtoEntityMapper.Map<UserDTO, User>(ordedDTO.User),
+                UserId = ordedDTO.User.Id,
                 Pricelists = MapperService.PricelistDTOtoEntityMapper.Map<IEnumerable<PricelistDTO>, ICollection<Pricelist>>(ordedDTO.PricelistDTOs),
                 Price = ordedDTO.Price,
             };

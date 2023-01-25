@@ -71,6 +71,7 @@ namespace PL.Controllers
         {
             return new UserViewModel
             {
+                Id = userDTO.Id,
                 UserName = userDTO.UserName,
                 Password = userDTO.Password,
                 FirstName = userDTO.FirstName,
@@ -83,6 +84,7 @@ namespace PL.Controllers
         {
             return new UserDTO
             {
+                Id = userViewModel.Id,
                 UserName = userViewModel.UserName,
                 Email = userViewModel.Email,
                 Password = userViewModel.Password,

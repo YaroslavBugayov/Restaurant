@@ -18,7 +18,6 @@ namespace BLL.Services
         public UserDTO Authenticate(string username, string password)
         {
             var account = Database.Users.Find(user => user.Username.Equals(username)).FirstOrDefault();
-
             return MapperService.UserMapper.Map<UserDTO>(account);
         }
 
