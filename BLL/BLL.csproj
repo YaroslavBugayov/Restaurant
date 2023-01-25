@@ -92,7 +92,6 @@
     <Compile Include="DTO\SizeDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\NinjectDependenciesModule.cs" />
-    <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Interfaces\IDishService.cs" />
     <Compile Include="Interfaces\IPricelistService.cs" />
     <Compile Include="Interfaces\ISizeService.cs" />
@@ -103,7 +102,6 @@
     <Compile Include="Services\MapperService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PricelistService.cs" />
-    <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Services\SizeService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>

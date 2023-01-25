@@ -24,6 +24,8 @@ namespace DAL
 
         protected override void OnModelCreating(DbModelBuilder dbModelBuilder)
         {
+            dbModelBuilder.Entity<User>().Property(user => user.Username).HasMaxLength(25);
+
             dbModelBuilder
                 .Entity<Dish>()
                 .HasMany<Ingredient>(d => d.Ingredients)

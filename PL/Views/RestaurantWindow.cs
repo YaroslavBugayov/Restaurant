@@ -16,10 +16,6 @@ namespace PL
 {
     public partial class RestaurantWindow : Form
     {
-        private static IUserService userService;
-        private static UserController userController;
-        private static IDishService dishService;
-        private static DishController dishController;
         private static IOrderService orderService;
         private static OrderController orderController;
         private static IPricelistService pricelistService;
@@ -34,8 +30,6 @@ namespace PL
             InitializeComponent();
             NinjectModule dependencies = new NinjectDependenciesModule();
             IKernel ninjectKernel = new StandardKernel(dependencies);
-            userService = ninjectKernel.Get<IUserService>();
-            userController = new UserController(userService);
             orderService = ninjectKernel.Get<IOrderService>();
             orderController = new OrderController(orderService);
             pricelistService = ninjectKernel.Get<IPricelistService>();

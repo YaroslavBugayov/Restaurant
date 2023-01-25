@@ -23,13 +23,14 @@ namespace BLL.Services
 
         public void CreateUser(UserDTO userDTO)
         {
+            //var user = MapperService.UserMapper.Map<User>(userDTO);
             User user = new User()
             {
                 Username = userDTO.UserName,
                 Password = userDTO.Password,
                 Email = userDTO.Email,
-                FirstName= userDTO.FirstName,
-                LastName= userDTO.LastName
+                FirstName = userDTO.FirstName,
+                LastName = userDTO.LastName
             };
 
             Database.Users.Create(user);
@@ -59,7 +60,7 @@ namespace BLL.Services
                 return MapperService.UserMapper.Map<UserDTO>(user);
             } else
             {
-                throw new ValidationException("User does not exist");
+                throw new Exception("User does not exist");
             }
         }
     }

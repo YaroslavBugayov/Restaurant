@@ -1,10 +1,6 @@
-﻿using AutoMapper;
-using AutoMapper.Internal;
-using BLL.DTO;
+﻿using BLL.DTO;
 using DAL.Entities;
 using DAL.Interfaces;
-using BLL.Services;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -44,12 +40,21 @@ namespace BLL.Services
             Order order = new Order
             {
                 UserId = ordedDTO.User.Id,
-                Pricelists = MapperService.PricelistDTOtoEntityMapper.Map<IEnumerable<PricelistDTO>, ICollection<Pricelist>>(ordedDTO.PricelistDTOs),
+                Pricelists = GetPricelists(ordedDTO.PricelistDTOs),
                 Price = ordedDTO.Price,
             };
             Database.Orders.Create(order);
             Database.Save();
         }
 
+        private ICollection<Pricelist> GetPricelists(IEnumerable<PricelistDTO> pricelists)
+        {
+            var list = new List<Pricelist>();
+            foreach (var pricelist in pricelists)
+            {
+                list.Add(Database.Pricelists.Find(pl => pl.Id.Equals(pricelist.Id)).FirstOrDefault());
+            }
+            return list;
+        }
     }
 }
