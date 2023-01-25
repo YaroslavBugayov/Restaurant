@@ -28,34 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxOrders = new System.Windows.Forms.ListBox();
+            this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
+            this.Orders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBoxOrders
+            // dataGridViewOrders
             // 
-            this.listBoxOrders.FormattingEnabled = true;
-            this.listBoxOrders.ItemHeight = 16;
-            this.listBoxOrders.Location = new System.Drawing.Point(1, -2);
-            this.listBoxOrders.Name = "listBoxOrders";
-            this.listBoxOrders.Size = new System.Drawing.Size(799, 452);
-            this.listBoxOrders.TabIndex = 0;
-            this.listBoxOrders.SelectedIndexChanged += new System.EventHandler(this.listBoxOrders_SelectedIndexChanged);
+            this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Orders});
+            this.dataGridViewOrders.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewOrders.Name = "dataGridViewOrders";
+            this.dataGridViewOrders.RowHeadersWidth = 30;
+            this.dataGridViewOrders.RowTemplate.Height = 24;
+            this.dataGridViewOrders.Size = new System.Drawing.Size(799, 448);
+            this.dataGridViewOrders.TabIndex = 0;
+            this.dataGridViewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrders_CellContentClick);
+            // 
+            // Orders
+            // 
+            this.Orders.HeaderText = "Orders";
+            this.Orders.MinimumWidth = 6;
+            this.Orders.Name = "Orders";
+            this.Orders.ReadOnly = true;
+            this.Orders.Width = 125;
             // 
             // CheckWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBoxOrders);
+            this.Controls.Add(this.dataGridViewOrders);
             this.Name = "CheckWindow";
             this.Text = "CheckWindow";
             this.Load += new System.EventHandler(this.CheckWindow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxOrders;
+        private System.Windows.Forms.DataGridView dataGridViewOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Orders;
     }
 }
