@@ -23,16 +23,7 @@ namespace BLL.Services
 
         public void CreateUser(UserDTO userDTO)
         {
-            //var user = MapperService.UserMapper.Map<User>(userDTO);
-            User user = new User()
-            {
-                Username = userDTO.UserName,
-                Password = userDTO.Password,
-                Email = userDTO.Email,
-                FirstName = userDTO.FirstName,
-                LastName = userDTO.LastName
-            };
-
+            var user = MapperService.UserDTOtoEntityMapper.Map<User>(userDTO);
             Database.Users.Create(user);
             Database.Save();
         }
