@@ -23,32 +23,36 @@ namespace BLL.Services
             Database.Dispose();
         }
 
-        public IEnumerable<PricelistDTO> GetPricelists()
+        public IEnumerable<OrderDTO> GetUsersOrders()
         {
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Pricelist, PricelistDTO>()).CreateMapper();
-            return mapper.Map<IEnumerable<Pricelist>, List<PricelistDTO>>(Database.Pricelists.GetAll());
+            //return MapperService
+            //    .FillOrdersListMapper
+            //    .Map<IEnumerable<Order>, List<OrderDTO>>
+            //    (Database.Orders.GetAll());
+            var orderDTOs = new List<OrderDTO>();
+            foreach (var order in Database.Orders.GetAll()) 
+            {
+                orderDTOs.Add(new OrderDTO()
+                {
+                    Id = order.Id,
+                    Price = order.Price,
+                    User = MapperService.UserMapper.Map<UserDTO>(order.User),
+                    PricelistDTOs = MapperService.PricelistMapper.Map<IEnumerable<Pricelist>, IEnumerable<PricelistDTO>>(order.Pricelists)
+                });
+            }
+            return orderDTOs;
         }
 
         public void MakeOrder(OrderDTO ordedDTO)
         {
             Order order = new Order
             {
-                User = MapperService.UserMapperDTOtoEntity.Map<User>(ordedDTO.User),
-                Pricelists = PricelistDTOtoEntity(ordedDTO.PricelistDTOs),
+                User = MapperService.UserDTOtoEntityMapper.Map<UserDTO, User>(ordedDTO.User),
+                Pricelists = MapperService.PricelistDTOtoEntityMapper.Map<IEnumerable<PricelistDTO>, ICollection<Pricelist>>(ordedDTO.PricelistDTOs),
                 Price = ordedDTO.Price,
             };
             Database.Orders.Create(order);
             Database.Save();
-        }
-
-        private List<Pricelist> PricelistDTOtoEntity(ICollection<PricelistDTO> listDTOs)
-        {
-            var list = new List<Pricelist>();
-            foreach (var item in listDTOs)
-            {
-                list.Add(MapperService.PricelistDTOtoEntity.Map<Pricelist>(item));
-            }
-            return list;
         }
 
     }

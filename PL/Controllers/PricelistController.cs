@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace PL.Controllers
 {
@@ -28,19 +29,13 @@ namespace PL.Controllers
             //{
                 var pricelistDTOs = pricelistService.GetPricelists();
 
-                NinjectModule dependencies = new NinjectDependenciesModule();
-                IKernel ninjectKernel = new StandardKernel(dependencies);
-                var dishService = ninjectKernel.Get<IDishService>();
-                var dishController = new DishController(dishService);
-                var sizeService = ninjectKernel.Get<ISizeService>();
-                var sizeController = new SizeController(sizeService);
-
                 foreach (PricelistDTO pricelistDTO in pricelistDTOs)
                 {
                     pricelists.Add(new PricelistViewModel()
                     {
-                        Dish = dishService.GetDish(pricelistDTO.DishId),
-                        Size = sizeService.GetSize(pricelistDTO.SizeId),
+                        Id = pricelistDTO.Id,
+                        Dish = pricelistDTO.DishDTO,
+                        Size = pricelistDTO.SizeDTO,
                         Price = pricelistDTO.Price,
                     });
                 }

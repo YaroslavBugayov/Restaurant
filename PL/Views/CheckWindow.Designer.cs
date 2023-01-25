@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.listBoxOrders = new System.Windows.Forms.ListBox();
+            this.SuspendLayout();
+            // 
+            // listBoxOrders
+            // 
+            this.listBoxOrders.FormattingEnabled = true;
+            this.listBoxOrders.ItemHeight = 16;
+            this.listBoxOrders.Location = new System.Drawing.Point(1, -2);
+            this.listBoxOrders.Name = "listBoxOrders";
+            this.listBoxOrders.Size = new System.Drawing.Size(799, 452);
+            this.listBoxOrders.TabIndex = 0;
+            this.listBoxOrders.SelectedIndexChanged += new System.EventHandler(this.listBoxOrders_SelectedIndexChanged);
+            // 
+            // CheckWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBoxOrders);
+            this.Name = "CheckWindow";
             this.Text = "CheckWindow";
+            this.Load += new System.EventHandler(this.CheckWindow_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox listBoxOrders;
     }
 }

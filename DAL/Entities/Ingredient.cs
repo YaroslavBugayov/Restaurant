@@ -10,6 +10,6 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public string IngredientName { get; set; }
-        public ICollection<Dish> Dishes { get; set; }
+        public virtual ICollection<Dish> Dishes { get; set; }
     }
 }

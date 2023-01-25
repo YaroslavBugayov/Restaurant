@@ -4016,7 +4016,7 @@ namespace ConsoleApp.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4323,7 +4323,7 @@ SELECT DishRefId, IngredientRefId FROM DishesIngredients WHERE (DishRefId = @Dis
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4618,7 +4618,7 @@ SELECT DishRefId, IngredientRefId FROM DishesIngredients WHERE (DishRefId = @Dis
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4929,7 +4929,7 @@ SELECT DishRefId, IngredientRefId FROM DishesIngredients WHERE (DishRefId = @Dis
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5232,7 +5232,7 @@ SELECT OrderRefId, PricelistRefId FROM OrdersPricelists WHERE (OrderRefId = @Ord
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5541,7 +5541,7 @@ SELECT Id, DishId, SizeId, Price FROM Pricelists WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5850,7 +5850,7 @@ SELECT Id, DishId, SizeId, Price FROM Pricelists WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6170,7 +6170,7 @@ SELECT Id, Username, FirstName, LastName, Password, Email FROM Users WHERE (Id =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantConnectionString;
+            this._connection.ConnectionString = global::ConsoleApp.Properties.Settings.Default.RestaurantDbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

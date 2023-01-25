@@ -42,6 +42,12 @@ namespace DAL
                 .HasForeignKey<int>(p => p.DishId);
 
             dbModelBuilder
+                .Entity<Pricelist>()
+                .HasRequired<Size>(p => p.Size)
+                .WithMany(s => s.Pricelists)
+                .HasForeignKey<int>(p => p.SizeId);
+
+            dbModelBuilder
                 .Entity<Order>()
                 .HasMany<Pricelist>(o => o.Pricelists)
                 .WithMany(p => p.Orders)

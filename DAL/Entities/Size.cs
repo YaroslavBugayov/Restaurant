@@ -11,5 +11,6 @@ namespace DAL.Entities
         public int Id { get; set; }
         public string SizeName { get; set; }
         public int Weight { get; set; }
+        public virtual ICollection<Pricelist> Pricelists { get; set; }
     }
 }

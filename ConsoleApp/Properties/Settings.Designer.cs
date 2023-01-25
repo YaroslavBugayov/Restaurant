@@ -33,5 +33,16 @@ namespace ConsoleApp.Properties {
                 return ((string)(this["RestaurantConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RestaurantDb;Integrated Securi" +
+            "ty=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
+        public string RestaurantDbConnectionString {
+            get {
+                return ((string)(this["RestaurantDbConnectionString"]));
+            }
+        }
     }
 }

@@ -220,6 +220,7 @@
             this.buttonPreviousOrders.TabIndex = 13;
             this.buttonPreviousOrders.Text = "See previous orders";
             this.buttonPreviousOrders.UseVisualStyleBackColor = true;
+            this.buttonPreviousOrders.Click += new System.EventHandler(this.buttonPreviousOrders_Click);
             // 
             // RestaurantWindow
             // 

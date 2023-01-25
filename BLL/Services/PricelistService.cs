@@ -5,6 +5,7 @@ using DAL.Entities;
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,9 @@ namespace BLL.Services
 
         public IEnumerable<PricelistDTO> GetPricelists()
         {
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Pricelist, PricelistDTO>()).CreateMapper();
-            return mapper.Map<IEnumerable<Pricelist>, List<PricelistDTO>>(Database.Pricelists.GetAll());
+            return MapperService.
+                PricelistMapper.
+                Map<List<Pricelist>, IEnumerable<PricelistDTO>>(Database.Pricelists.GetAll().ToList());
         }
 
         public void Dispose()

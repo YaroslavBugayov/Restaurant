@@ -9,11 +9,11 @@ namespace DAL.Entities
     public class Pricelist
     {
         public int Id { get; set; }
-        public Dish Dish { get; set; }
+        public virtual Dish Dish { get; set; }
         public int DishId { get; set; }
-        public Size Size { get; set; }
+        public virtual Size Size { get; set; }
         public int SizeId { get; set; }
         public int Price { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

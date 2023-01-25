@@ -45,3 +45,4 @@ C:\Projects\NET\Restaurant\PL\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Projects\NET\Restaurant\PL\bin\Debug\BLL.dll.config
 C:\Projects\NET\Restaurant\PL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\NET\Restaurant\PL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\NET\Restaurant\PL\obj\Debug\PL.Views.CheckWindow.resources

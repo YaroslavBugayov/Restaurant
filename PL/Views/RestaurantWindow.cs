@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using BLL.Services;
 using System.Linq;
 using PL.Models;
+using System.Diagnostics;
 
 namespace PL
 {
@@ -127,6 +128,7 @@ namespace PL
                 User = AuthorizedUserController.Get(),
             });
 
+            setPriceText();
             listBoxOrders.Items.Clear();
         }
 
@@ -150,6 +152,12 @@ namespace PL
                 resultPrice += item.Price;
             }
             return resultPrice;
+        }
+
+        private void buttonPreviousOrders_Click(object sender, EventArgs e)
+        {
+            CheckWindow checkWindow = new CheckWindow();
+            checkWindow.Show();
         }
     }
 }

@@ -9,6 +9,6 @@ namespace PL.Models
         public int Id { get; set; }
         public UserViewModel User { get; set; }
         public int Price { get; set; }
-        public ICollection<PricelistViewModel> pricelistViewModels { get; set; }
+        public IEnumerable<PricelistViewModel> pricelistViewModels { get; set; }
     }
 }

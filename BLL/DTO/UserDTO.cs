@@ -15,6 +15,6 @@ namespace BLL.DTO
         public string LastName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public ICollection<OrderDTO> OrderDTOs { get; set; }
+        public IEnumerable<OrderDTO> OrderDTOs { get; set; }
     }
 }

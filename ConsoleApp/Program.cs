@@ -35,11 +35,11 @@ namespace ConsoleApp
 
             // Dishes
             Dish dish1 = new Dish
-           {
-               Id = 1,
-               DishName = "El la pasta",
-               Ingredients = new List<Ingredient> { ingredient1 }
-           };
+            {
+                Id = 1,
+                DishName = "El la pasta",
+                Ingredients = new List<Ingredient> { ingredient1 }
+            };
             Dish dish2 = new Dish
             {
                 Id = 2,
@@ -68,57 +68,57 @@ namespace ConsoleApp
             // Pricelists
             Pricelist pricelist1 = new Pricelist
             {
-                DishId = 1,
-                SizeId = 1,
+                Dish = dish1,
+                Size = size,
                 Price = 100
             };
 
             Pricelist pricelist2 = new Pricelist
             {
-                DishId = 1,
-                SizeId = 5,
+                Dish = dish1,
+                Size = size5,
                 Price = 200
             };
 
             Pricelist pricelist3 = new Pricelist
             {
-                DishId = 2,
-                SizeId = 6,
+                Dish = dish2,
+                Size = size6,
                 Price = 210
             };
 
             Pricelist pricelist4 = new Pricelist
             {
-                DishId = 3,
-                SizeId = 2,
+                Dish = dish3,
+                Size = size2,
                 Price = 230
             };
 
             Pricelist pricelist5 = new Pricelist
             {
-                DishId = 3,
-                SizeId = 3,
+                Dish = dish3,
+                Size = size3,
                 Price = 320
             };
 
             Pricelist pricelist6 = new Pricelist
             {
-                DishId = 4,
-                SizeId = 4,
+                Dish = dish4,
+                Size = size4,
                 Price = 400
             };
 
             Pricelist pricelist7 = new Pricelist
             {
-                DishId = 4,
-                SizeId = 5,
+                Dish = dish4,
+                Size = size5,
                 Price = 500
             };
 
             Pricelist pricelist8 = new Pricelist
             {
-                DishId = 5,
-                SizeId = 1,
+                Dish = dish5,
+                Size = size,
                 Price = 100
             };
 
