@@ -4,7 +4,7 @@ using BLL.DTO;
 
 namespace PL.Models
 {
-    public class OrderModel
+    internal class OrderModel
     {
         public int Id { get; set; }
         public UserModel User { get; set; }

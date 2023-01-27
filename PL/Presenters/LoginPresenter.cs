@@ -15,7 +15,7 @@ namespace PL.Presenters
         public LoginPresenter(LoginView view) 
         { 
             this.view = view;
-            IKernel ninjectKernel = new StandardKernel(new NinjectDependenciesModule());
+            IKernel ninjectKernel = new StandardKernel(new NinjectBindings());
             userService = ninjectKernel.Get<IUserService>();
 
             this.view.LoginEvent += Login;
@@ -27,27 +27,16 @@ namespace PL.Presenters
             try
             {
                 var userDTO = userService.Authenticate(view.Username, view.Password);
-
-                if (userDTO.Password != view.Password)
-                {
-                    return;
-                }
-
                 userModel = MapperPresenter.UserDTOtoModelMapper.Map<UserModel>(userDTO);
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            if (userModel != null)
-            {
-                AuthorizedUserPresenter.Set(userModel);
-                view.Close();
-            }
-            else
-            {
-                MessageBox.Show("Invalid password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            AuthorizedUserPresenter.Set(userModel);
+            view.Close();
         }
     }
 

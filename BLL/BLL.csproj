@@ -91,7 +91,7 @@
     <Compile Include="DTO\PricelistDTO.cs" />
     <Compile Include="DTO\SizeDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
-    <Compile Include="Infrastructure\NinjectDependenciesModule.cs" />
+    <Compile Include="Infrastructure\NinjectBindings.cs" />
     <Compile Include="Interfaces\IPricelistService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

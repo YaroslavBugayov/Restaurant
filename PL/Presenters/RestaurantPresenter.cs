@@ -23,7 +23,7 @@ namespace PL.Presenters
         public RestaurantPresenter(RestaurantView view)
         {
             this.view = view;
-            IKernel ninjectKernel = new StandardKernel(new NinjectDependenciesModule());
+            IKernel ninjectKernel = new StandardKernel(new NinjectBindings());
             orderService = ninjectKernel.Get<IOrderService>();
             pricelistService = ninjectKernel.Get<IPricelistService>();
 
@@ -121,6 +121,12 @@ namespace PL.Presenters
                 return;
             }
 
+            if (listBoxOrdersList.Count.Equals(0))
+            {
+                MessageBox.Show("Add at least one dish to the order", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             orderService.MakeOrder(MapperPresenter
                 .OrderModelToDTOMapper
                 .Map<OrderDTO>(new OrderModel()
@@ -141,10 +147,15 @@ namespace PL.Presenters
 
         private void Logged(object sender, EventArgs e)
         {
-            var firstName = AuthorizedUserPresenter.Get().FirstName;
-            var lastName = AuthorizedUserPresenter.Get().LastName;
-            view.Username = string.Format("{0} {1}", firstName, lastName);
-            view.loggedIntoAccount();
+            var user = AuthorizedUserPresenter.Get();
+            if (user != null)
+            {
+                var firstName = user.FirstName;
+                var lastName = user.LastName;
+                view.Username = string.Format("{0} {1}", firstName, lastName);
+                view.loggedIntoAccount();
+            }
+            
         }
     }
 }

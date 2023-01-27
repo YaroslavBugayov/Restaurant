@@ -24,7 +24,7 @@ namespace BLL.Services
         {
             return MapperService.
                 PricelistMapper.
-                Map<List<Pricelist>, IEnumerable<PricelistDTO>>(Database.Pricelists.GetAll().ToList());
+                Map<IEnumerable<Pricelist>, IEnumerable<PricelistDTO>>(Database.Pricelists.GetAll().ToList());
         }
 
         public void Dispose()

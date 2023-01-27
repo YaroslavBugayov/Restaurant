@@ -6,7 +6,7 @@ using Ninject.Modules;
 
 namespace BLL.Infrastructure
 {
-    public class NinjectDependenciesModule : NinjectModule
+    public class NinjectBindings : NinjectModule
     {
         public override void Load()
         {

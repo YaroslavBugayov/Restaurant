@@ -17,7 +17,7 @@ namespace PL.Presenters
         public RegistrationPresenter(RegistrationView view)
         {
             this.view = view;
-            IKernel ninjectKernel = new StandardKernel(new NinjectDependenciesModule());
+            IKernel ninjectKernel = new StandardKernel(new NinjectBindings());
             userService = ninjectKernel.Get<IUserService>();
 
             this.view.RegistrationEvent += Register;
@@ -35,58 +35,21 @@ namespace PL.Presenters
                 LastName = view.LastName
             };
 
-            if (IsValid(userModel))
+            try
             {
-                try
-                {
-                    var userDTO = MapperPresenter.UserModelToDTOMapper.Map<UserDTO>(userModel);
-                    userService.CreateUser(userDTO);
-                }
-                catch (Exception ex) 
-                {
-                    return;
-                }
-                AuthorizedUserPresenter.Set(userModel);
-                view.Close();
+                var userDTO = MapperPresenter.UserModelToDTOMapper.Map<UserDTO>(userModel);
+                userService.CreateUser(userDTO);
             }
-        }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+ 
+            userModel.Id = userService.GetUserByUsername(userModel.UserName).Id;
 
-        private bool IsValid(UserModel userModel)
-        {
-            bool isValid = true;
-            string errorString = "Please enter ";
-            if (String.IsNullOrEmpty(userModel.UserName))
-            {
-                errorString += "username ";
-                isValid = false;
-            }
-            if (String.IsNullOrEmpty(userModel.Password))
-            {
-                errorString += "password ";
-                isValid = false;
-            }
-            if (String.IsNullOrEmpty(userModel.Email))
-            {
-                errorString += "email ";
-                isValid = false;
-            }
-            if (String.IsNullOrEmpty(userModel.FirstName))
-            {
-                errorString += "first name ";
-                isValid = false;
-            }
-            if (String.IsNullOrEmpty(userModel.LastName))
-            {
-                errorString += "last name ";
-                isValid = false;
-            }
-
-            if (!isValid)
-            {
-                MessageBox.Show(errorString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return isValid;
+            AuthorizedUserPresenter.Set(userModel);
+            view.Close();
         }
     }
 }

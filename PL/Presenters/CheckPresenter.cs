@@ -16,7 +16,7 @@ namespace PL.Presenters
         public CheckPresenter(CheckView view) 
         {
             this.view = view;
-            IKernel ninjectKernel = new StandardKernel(new NinjectDependenciesModule());
+            IKernel ninjectKernel = new StandardKernel(new NinjectBindings());
             orderService = ninjectKernel.Get<IOrderService>();
 
             this.view.FillDataGridEvent += FillDataGrid;
