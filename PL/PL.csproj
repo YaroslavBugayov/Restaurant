@@ -90,14 +90,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presenters\AuthorizedUserController.cs" />
+    <Compile Include="Presenters\AuthorizedUserPresenter.cs" />
     <Compile Include="Presenters\CheckPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
     <Compile Include="Presenters\MapperPresenter.cs" />
-    <Compile Include="Presenters\PricelistController.cs" />
     <Compile Include="Presenters\RegistrationPresenter.cs" />
-    <Compile Include="Presenters\UserController.cs" />
     <Compile Include="Models\PricelistModel.cs" />
+    <Compile Include="Presenters\RestaurantPresenter.cs" />
     <Compile Include="Views\CheckView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,7 +109,6 @@
     <Compile Include="Views\RestaurantView.Designer.cs">
       <DependentUpon>RestaurantView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presenters\OrderController.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Program.cs" />

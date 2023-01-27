@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PL.Presenters
 {
-    public static class AuthorizedUserController
+    public static class AuthorizedUserPresenter
     {
         private static UserModel user;
         public static UserModel Get()

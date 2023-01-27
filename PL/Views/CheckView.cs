@@ -16,6 +16,7 @@ namespace PL.Views
         {
             InitializeComponent();
             Load += delegate { FillDataGridEvent?.Invoke(this, EventArgs.Empty); };
+            
         }
 
         public IEnumerable<string> DataGridView

@@ -12,13 +12,11 @@ namespace PL.Presenters
     internal class RegistrationPresenter
     {
         private RegistrationView view;
-        private RestaurantView parentView;
         private static IUserService userService;
 
-        public RegistrationPresenter(RegistrationView view, RestaurantView parentView)
+        public RegistrationPresenter(RegistrationView view)
         {
             this.view = view;
-            this.parentView = parentView;
             IKernel ninjectKernel = new StandardKernel(new NinjectDependenciesModule());
             userService = ninjectKernel.Get<IUserService>();
 
@@ -48,8 +46,7 @@ namespace PL.Presenters
                 {
                     return;
                 }
-                AuthorizedUserController.Set(userModel);
-                parentView.loggedIntoAccount();
+                AuthorizedUserPresenter.Set(userModel);
                 view.Close();
             }
         }

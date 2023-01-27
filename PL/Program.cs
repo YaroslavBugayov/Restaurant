@@ -1,8 +1,5 @@
-﻿using PL.Views;
+﻿using PL.Presenters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PL
@@ -14,7 +11,8 @@ namespace PL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RestaurantView());
+            var restaurantPresenter = new RestaurantPresenter(new RestaurantView());
+            restaurantPresenter.Run();
         }
     }
 }

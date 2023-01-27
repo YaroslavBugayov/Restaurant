@@ -21,7 +21,6 @@ namespace PL.Presenters
 
             this.view.FillDataGridEvent += FillDataGrid;
             this.view.Show();
-
         }
 
         private void FillDataGrid(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace PL.Presenters
             var orderModels = MapperPresenter
                 .OrderDTOtoModelMapper
                 .Map<IEnumerable<OrderDTO>, IEnumerable<OrderModel>>
-                (orderService.GetUsersOrders(AuthorizedUserController.Get().Id));
+                (orderService.GetUsersOrders(AuthorizedUserPresenter.Get().Id));
 
             foreach (var order in orderModels)
             {

@@ -77,7 +77,6 @@
             this.buttonSignIn.TabIndex = 2;
             this.buttonSignIn.Text = "Sign In";
             this.buttonSignIn.UseVisualStyleBackColor = true;
-            this.buttonSignIn.Click += new System.EventHandler(this.buttonSignIn_Click);
             // 
             // buttonSignUp
             // 
@@ -87,7 +86,6 @@
             this.buttonSignUp.TabIndex = 3;
             this.buttonSignUp.Text = "Sign Up";
             this.buttonSignUp.UseVisualStyleBackColor = true;
-            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
             // 
             // buttonSignOut
             // 
@@ -97,7 +95,6 @@
             this.buttonSignOut.TabIndex = 4;
             this.buttonSignOut.Text = "Sign Out";
             this.buttonSignOut.UseVisualStyleBackColor = true;
-            this.buttonSignOut.Click += new System.EventHandler(this.buttonSignOut_Click);
             // 
             // buttonCreateOrder
             // 
@@ -107,7 +104,6 @@
             this.buttonCreateOrder.TabIndex = 5;
             this.buttonCreateOrder.Text = "Create Order";
             this.buttonCreateOrder.UseVisualStyleBackColor = true;
-            this.buttonCreateOrder.Click += new System.EventHandler(this.buttonCreateOrder_Click);
             // 
             // panelOrder
             // 
@@ -136,7 +132,6 @@
             this.buttonAddOrder.TabIndex = 14;
             this.buttonAddOrder.Text = "Add";
             this.buttonAddOrder.UseVisualStyleBackColor = true;
-            this.buttonAddOrder.Click += new System.EventHandler(this.buttonAddOrder_Click);
             // 
             // label1
             // 
@@ -154,7 +149,6 @@
             this.comboBoxDishes.Name = "comboBoxDishes";
             this.comboBoxDishes.Size = new System.Drawing.Size(228, 24);
             this.comboBoxDishes.TabIndex = 7;
-            this.comboBoxDishes.SelectedIndexChanged += new System.EventHandler(this.comboBoxDishes_SelectedIndexChanged);
             // 
             // listBoxOrders
             // 
@@ -182,7 +176,6 @@
             this.buttonRemoveOrder.TabIndex = 9;
             this.buttonRemoveOrder.Text = "Remove";
             this.buttonRemoveOrder.UseVisualStyleBackColor = true;
-            this.buttonRemoveOrder.Click += new System.EventHandler(this.buttonRemoveOrder_Click);
             // 
             // buttonSendOrders
             // 
@@ -192,7 +185,6 @@
             this.buttonSendOrders.TabIndex = 10;
             this.buttonSendOrders.Text = "Send orders";
             this.buttonSendOrders.UseVisualStyleBackColor = true;
-            this.buttonSendOrders.Click += new System.EventHandler(this.buttonSendOrders_Click);
             // 
             // label4
             // 
@@ -220,7 +212,6 @@
             this.buttonPreviousOrders.TabIndex = 13;
             this.buttonPreviousOrders.Text = "See previous orders";
             this.buttonPreviousOrders.UseVisualStyleBackColor = true;
-            this.buttonPreviousOrders.Click += new System.EventHandler(this.buttonPreviousOrders_Click);
             // 
             // RestaurantWindow
             // 
@@ -243,7 +234,6 @@
             this.Controls.Add(this.labelWelcome);
             this.Name = "RestaurantWindow";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Application_Load);
             this.panelOrder.ResumeLayout(false);
             this.panelOrder.PerformLayout();
             this.ResumeLayout(false);

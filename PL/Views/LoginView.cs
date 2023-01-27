@@ -6,6 +6,7 @@ namespace PL.Views
     public partial class LoginView : Form
     {
         public event EventHandler LoginEvent;
+        public event EventHandler LoggedEvent;
         public LoginView()
         {
             InitializeComponent();
@@ -13,6 +14,7 @@ namespace PL.Views
             buttonSignIn.Click += delegate
             {
                 LoginEvent?.Invoke(this, EventArgs.Empty);
+                LoggedEvent?.Invoke(this, EventArgs.Empty);
             };
         }
 

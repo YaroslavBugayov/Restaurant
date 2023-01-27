@@ -11,12 +11,10 @@ namespace PL.Presenters
     internal class LoginPresenter
     {
         private LoginView view;
-        private RestaurantView parentView;
         private static IUserService userService;
-        public LoginPresenter(LoginView view, RestaurantView parentView) 
+        public LoginPresenter(LoginView view) 
         { 
             this.view = view;
-            this.parentView = parentView;
             IKernel ninjectKernel = new StandardKernel(new NinjectDependenciesModule());
             userService = ninjectKernel.Get<IUserService>();
 
@@ -43,8 +41,7 @@ namespace PL.Presenters
             }
             if (userModel != null)
             {
-                AuthorizedUserController.Set(userModel);
-                parentView.loggedIntoAccount();
+                AuthorizedUserPresenter.Set(userModel);
                 view.Close();
             }
             else

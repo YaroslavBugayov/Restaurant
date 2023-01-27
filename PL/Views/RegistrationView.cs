@@ -1,17 +1,12 @@
-﻿using PL.Presenters;
-using PL.Models;
-using BLL.Interfaces;
-using System;
+﻿using System;
 using System.Windows.Forms;
-using Ninject;
-using Ninject.Modules;
-using BLL.Infrastructure;
 
 namespace PL.Views
 {
     public partial class RegistrationView : Form
     {
         public event EventHandler RegistrationEvent;
+        public event EventHandler LoggedEvent;
         public RegistrationView()
         {
             InitializeComponent();
@@ -19,6 +14,7 @@ namespace PL.Views
             buttonSignUp2.Click += delegate
             {
                 RegistrationEvent?.Invoke(this, EventArgs.Empty);
+                LoggedEvent?.Invoke(this, EventArgs.Empty);
             };
         }
 
