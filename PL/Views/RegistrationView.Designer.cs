@@ -1,6 +1,6 @@
 ﻿namespace PL.Views
 {
-    partial class RegisterWindow
+    partial class RegistrationView
     {
         /// <summary>
         /// Required designer variable.
@@ -150,7 +150,7 @@
             this.Controls.Add(this.buttonSignUp2);
             this.Name = "RegisterWindow";
             this.Text = "RegisterWindow";
-            this.Load += new System.EventHandler(this.RegisterWindow_Load);
+            this.Load += new System.EventHandler(this.RegistrationView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

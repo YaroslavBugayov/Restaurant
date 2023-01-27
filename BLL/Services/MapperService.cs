@@ -16,16 +16,16 @@ namespace BLL.Services
             new MapperConfiguration(configuration => configuration.CreateMap<Pricelist, PricelistDTO>()
             .ForMember(plDTO => plDTO.Id, opt => opt.MapFrom(pl => pl.Id))
             .ForMember(plDTO => plDTO.Price, opt => opt.MapFrom(pl => pl.Price))
-            .ForMember(plDTO => plDTO.DishDTO, opt => opt.MapFrom(pl => DishMapper.Map<Dish, DishDTO>(pl.Dish)))
-            .ForMember(plDTO => plDTO.SizeDTO, opt => opt.MapFrom(pl => SizeMapper.Map<Size, SizeDTO>(pl.Size))));
+            .ForMember(plDTO => plDTO.Dish, opt => opt.MapFrom(pl => DishMapper.Map<Dish, DishDTO>(pl.Dish)))
+            .ForMember(plDTO => plDTO.Size, opt => opt.MapFrom(pl => SizeMapper.Map<Size, SizeDTO>(pl.Size))));
+
         private static MapperConfiguration pricelistDTOtoEntityMapperConfiguration = 
             new MapperConfiguration(configuration => configuration.CreateMap<PricelistDTO, Pricelist>()
             .ForMember(pl => pl.Id, opt => opt.MapFrom(plDTO => plDTO.Id))
             .ForMember(pl => pl.Price, opt => opt.MapFrom(plDTO => plDTO.Price))
-            .ForMember(pl => pl.Dish, opt => opt.MapFrom(plDTO => DishDTOtoEntityMapper.Map<DishDTO, Dish>(plDTO.DishDTO)))
-            .ForMember(pl => pl.Size, opt => opt.MapFrom(plDTO => SizeDTOtoEntityMapper.Map<SizeDTO, Size>(plDTO.SizeDTO))));
+            .ForMember(pl => pl.Dish, opt => opt.MapFrom(plDTO => DishDTOtoEntityMapper.Map<DishDTO, Dish>(plDTO.Dish)))
+            .ForMember(pl => pl.Size, opt => opt.MapFrom(plDTO => SizeDTOtoEntityMapper.Map<SizeDTO, Size>(plDTO.Size))));
         private static MapperConfiguration userDTOtoEntityMapperConfiguration = new MapperConfiguration(configuration => configuration.CreateMap<UserDTO, User>());
-        //private static MapperConfiguration fillOrdersListMapperConfiguration = new MapperConfiguration(configuration => configuration.CreateMap<Order, OrderDTO>());
             
 
         public static Mapper UserMapper = new Mapper(userMapperConfiguration);
@@ -36,6 +36,6 @@ namespace BLL.Services
         public static Mapper PricelistMapper = new Mapper(pricelistMapperConfiguration);
         public static Mapper PricelistDTOtoEntityMapper = new Mapper(pricelistDTOtoEntityMapperConfiguration);
         public static Mapper UserDTOtoEntityMapper = new Mapper(userDTOtoEntityMapperConfiguration);
-        //public static Mapper FillOrdersListMapper = new Mapper(fillOrdersListMapperConfiguration);
+        
     }
 }

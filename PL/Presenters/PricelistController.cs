@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace PL.Controllers
+namespace PL.Presenters
 {
     public class PricelistController
     {
@@ -22,20 +22,20 @@ namespace PL.Controllers
             this.pricelistService = pricelistService;
         }
 
-        public ICollection<PricelistViewModel> GetPricelists()
+        public ICollection<PricelistModel> GetPricelists()
         {
-            ICollection<PricelistViewModel> pricelists = new List<PricelistViewModel>();
+            ICollection<PricelistModel> pricelists = new List<PricelistModel>();
             //try
             //{
                 var pricelistDTOs = pricelistService.GetPricelists();
 
                 foreach (PricelistDTO pricelistDTO in pricelistDTOs)
                 {
-                    pricelists.Add(new PricelistViewModel()
+                    pricelists.Add(new PricelistModel()
                     {
                         Id = pricelistDTO.Id,
-                        Dish = pricelistDTO.DishDTO,
-                        Size = pricelistDTO.SizeDTO,
+                        Dish = pricelistDTO.Dish,
+                        Size = pricelistDTO.Size,
                         Price = pricelistDTO.Price,
                     });
                 }

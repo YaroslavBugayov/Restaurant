@@ -1,6 +1,6 @@
 ﻿namespace PL
 {
-    partial class RestaurantWindow
+    partial class RestaurantView
     {
         /// <summary>
         /// Required designer variable.

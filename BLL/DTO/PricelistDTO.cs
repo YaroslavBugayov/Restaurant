@@ -9,8 +9,8 @@ namespace BLL.DTO
     public class PricelistDTO
     {
         public int Id { get; set; }
-        public DishDTO DishDTO { get; set; }
-        public SizeDTO SizeDTO { get; set; }
+        public DishDTO Dish { get; set; }
+        public SizeDTO Size { get; set; }
         public int Price { get; set; }
     }
 }

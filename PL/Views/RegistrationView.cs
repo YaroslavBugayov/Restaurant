@@ -1,4 +1,4 @@
-﻿using PL.Controllers;
+﻿using PL.Presenters;
 using PL.Models;
 using BLL.Interfaces;
 using System;
@@ -9,12 +9,12 @@ using BLL.Infrastructure;
 
 namespace PL.Views
 {
-    public partial class RegisterWindow : Form
+    public partial class RegistrationView : Form
     {
         private static IUserService userServise;
         private static UserController userController;
-        private RestaurantWindow parentWindow;
-        public RegisterWindow(RestaurantWindow parentWindow)
+        private RestaurantView parentWindow;
+        public RegistrationView(RestaurantView parentWindow)
         {
             InitializeComponent();
             NinjectModule dependencies = new NinjectDependenciesModule();
@@ -32,7 +32,7 @@ namespace PL.Views
             string firstName = textBoxFirstName.Text;
             string lastName = textBoxLastName.Text;
 
-            UserViewModel userViewModel = new UserViewModel()
+            UserModel userModel = new UserModel()
             {
                 UserName = username,
                 Password = password,
@@ -43,17 +43,17 @@ namespace PL.Views
 
             if (IsValid(username, password, email, firstName, lastName))
             {
-                var user = userController.CreateUser(userViewModel);
+                var user = userController.CreateUser(userModel);
                 if (user != null)
                 {
-                    AuthorizedUserController.Set(userViewModel);
+                    AuthorizedUserController.Set(userModel);
                     parentWindow.loggedIntoAccount();
                     Close();
                 }
             }
         }
 
-        private void RegisterWindow_Load(object sender, EventArgs e)
+        private void RegistrationView_Load(object sender, EventArgs e)
         {
 
         }

@@ -2,7 +2,7 @@
 
 namespace PL.Views
 {
-    partial class LoginWindow
+    partial class LoginView
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,6 @@ namespace PL.Views
             this.buttonSignIn.TabIndex = 0;
             this.buttonSignIn.Text = "Sign In";
             this.buttonSignIn.UseVisualStyleBackColor = true;
-            this.buttonSignIn.Click += new System.EventHandler(this.buttonSignIn_Click);
             // 
             // loginTextBox
             // 
@@ -53,7 +52,6 @@ namespace PL.Views
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(185, 22);
             this.loginTextBox.TabIndex = 1;
-            this.loginTextBox.TextChanged += new System.EventHandler(this.loginTextBox_TextChanged);
             // 
             // passwordTextBox
             // 
@@ -93,7 +91,6 @@ namespace PL.Views
             this.Controls.Add(this.buttonSignIn);
             this.Name = "LoginWindow";
             this.Text = "LoginWindow";
-            this.Load += new System.EventHandler(this.LoginWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

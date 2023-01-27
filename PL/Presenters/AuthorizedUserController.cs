@@ -5,19 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PL.Controllers
+namespace PL.Presenters
 {
     public static class AuthorizedUserController
     {
-        private static UserViewModel user;
-        public static UserViewModel Get()
+        private static UserModel user;
+        public static UserModel Get()
         {
             return user;
         }
 
-        public static void Set(UserViewModel userViewModel) 
+        public static void Set(UserModel userModel) 
         {
-            user = userViewModel;
+            user = userModel;
         }
     }
 }

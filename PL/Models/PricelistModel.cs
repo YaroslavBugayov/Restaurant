@@ -7,7 +7,7 @@ using BLL.DTO;
 
 namespace PL.Models
 {
-    public class PricelistViewModel
+    public class PricelistModel
     {
         public int Id { get; set; }
         public DishDTO Dish { get; set; }

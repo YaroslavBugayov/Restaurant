@@ -2,7 +2,7 @@
 using BLL.Interfaces;
 using Ninject.Modules;
 using Ninject;
-using PL.Controllers;
+using PL.Presenters;
 using PL.Views;
 using System;
 using System.Windows.Forms;
@@ -14,18 +14,18 @@ using System.Diagnostics;
 
 namespace PL
 {
-    public partial class RestaurantWindow : Form
+    public partial class RestaurantView : Form
     {
         private static IOrderService orderService;
         private static OrderController orderController;
         private static IPricelistService pricelistService;
         private static PricelistController pricelistController;
 
-        private List<PricelistViewModel> pricelists;
-        private List<PricelistViewModel> listBoxOrdersList = 
-            new List<PricelistViewModel>();
+        private List<PricelistModel> pricelists;
+        private List<PricelistModel> listBoxOrdersList = 
+            new List<PricelistModel>();
 
-        public RestaurantWindow()
+        public RestaurantView()
         {
             InitializeComponent();
             NinjectModule dependencies = new NinjectDependenciesModule();
@@ -53,13 +53,12 @@ namespace PL
 
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow(this);
-            loginWindow.Show();
+            new LoginPresenter(new LoginView(), this);
         }
 
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
-            RegisterWindow registerWindow = new RegisterWindow(this);
+            RegistrationView registerWindow = new RegistrationView(this);
             registerWindow.Show();
         }
 
@@ -115,10 +114,10 @@ namespace PL
                 return; 
             }
 
-            orderController.MakeOrder(new OrderViewModel()
+            orderController.MakeOrder(new OrderModel()
             {
                 Price = getPrice(),
-                pricelistViewModels = listBoxOrdersList,
+                pricelistModels = listBoxOrdersList,
                 User = AuthorizedUserController.Get(),
             });
 
@@ -150,8 +149,7 @@ namespace PL
 
         private void buttonPreviousOrders_Click(object sender, EventArgs e)
         {
-            CheckWindow checkWindow = new CheckWindow();
-            checkWindow.Show();
+            new CheckPresenter(new CheckView());
         }
     }
 }

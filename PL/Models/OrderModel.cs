@@ -4,11 +4,11 @@ using BLL.DTO;
 
 namespace PL.Models
 {
-    public class OrderViewModel
+    public class OrderModel
     {
         public int Id { get; set; }
-        public UserViewModel User { get; set; }
+        public UserModel User { get; set; }
         public int Price { get; set; }
-        public IEnumerable<PricelistViewModel> pricelistViewModels { get; set; }
+        public IEnumerable<PricelistModel> pricelistModels { get; set; }
     }
 }

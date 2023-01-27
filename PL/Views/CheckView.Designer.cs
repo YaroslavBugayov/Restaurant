@@ -1,6 +1,8 @@
-﻿namespace PL.Views
+﻿using System.Windows.Forms;
+
+namespace PL.Views
 {
-    partial class CheckWindow
+    partial class CheckView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
-            this.Orders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,32 +39,28 @@
             // 
             this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Orders});
-            this.dataGridViewOrders.Location = new System.Drawing.Point(0, 0);
+            this.Column1});
+            this.dataGridViewOrders.Location = new System.Drawing.Point(1, 1);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
-            this.dataGridViewOrders.RowHeadersWidth = 30;
+            this.dataGridViewOrders.RowHeadersWidth = 51;
             this.dataGridViewOrders.RowTemplate.Height = 24;
-            this.dataGridViewOrders.Size = new System.Drawing.Size(799, 448);
+            this.dataGridViewOrders.Size = new System.Drawing.Size(553, 454);
             this.dataGridViewOrders.TabIndex = 0;
-            this.dataGridViewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrders_CellContentClick);
+            this.dataGridViewOrders.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             // 
-            // Orders
+            // Column1
             // 
-            this.Orders.HeaderText = "Orders";
-            this.Orders.MinimumWidth = 6;
-            this.Orders.Name = "Orders";
-            this.Orders.ReadOnly = true;
-            this.Orders.Width = 125;
+            this.Column1.HeaderText = "Orders";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 500;
             // 
-            // CheckWindow
+            // CheckView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(554, 456);
             this.Controls.Add(this.dataGridViewOrders);
-            this.Name = "CheckWindow";
-            this.Text = "CheckWindow";
-            this.Load += new System.EventHandler(this.CheckWindow_Load);
+            this.Name = "CheckView";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
             this.ResumeLayout(false);
 
@@ -70,7 +68,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewOrders;
         private System.Windows.Forms.DataGridViewTextBoxColumn Orders;
+        private System.Windows.Forms.DataGridView dataGridViewOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

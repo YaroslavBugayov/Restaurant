@@ -20,9 +20,6 @@ C:\Projects\NET\Restaurant\PL\obj\Debug\PL.csproj.CoreCompileInputs.cache
 C:\Projects\NET\Restaurant\PL\obj\Debug\PL.csproj.CopyComplete
 C:\Projects\NET\Restaurant\PL\obj\Debug\PL.exe
 C:\Projects\NET\Restaurant\PL\obj\Debug\PL.pdb
-C:\Projects\NET\Restaurant\PL\obj\Debug\PL.Views.LoginWindow.resources
-C:\Projects\NET\Restaurant\PL\obj\Debug\PL.Views.RegisterWindow.resources
-C:\Projects\NET\Restaurant\PL\obj\Debug\PL.RestaurantWindow.resources
 C:\Projects\NET\Restaurant\PL\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Projects\NET\Restaurant\PL\bin\Debug\Ninject.Web.Common.dll
 C:\Projects\NET\Restaurant\PL\bin\Debug\Ninject.Web.Common.WebHost.dll
@@ -45,4 +42,7 @@ C:\Projects\NET\Restaurant\PL\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Projects\NET\Restaurant\PL\bin\Debug\BLL.dll.config
 C:\Projects\NET\Restaurant\PL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\NET\Restaurant\PL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Projects\NET\Restaurant\PL\obj\Debug\PL.Views.CheckWindow.resources
+C:\Projects\NET\Restaurant\PL\obj\Debug\PL.Views.CheckView.resources
+C:\Projects\NET\Restaurant\PL\obj\Debug\PL.RestaurantView.resources
+C:\Projects\NET\Restaurant\PL\obj\Debug\PL.Views.LoginView.resources
+C:\Projects\NET\Restaurant\PL\obj\Debug\PL.Views.RegistrationView.resources
