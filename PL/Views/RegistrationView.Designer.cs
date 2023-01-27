@@ -49,7 +49,6 @@
             this.buttonSignUp2.TabIndex = 0;
             this.buttonSignUp2.Text = "Sign Up";
             this.buttonSignUp2.UseVisualStyleBackColor = true;
-            this.buttonSignUp2.Click += new System.EventHandler(this.buttonSignUp2_Click);
             // 
             // textBoxFirstName
             // 
@@ -150,7 +149,6 @@
             this.Controls.Add(this.buttonSignUp2);
             this.Name = "RegisterWindow";
             this.Text = "RegisterWindow";
-            this.Load += new System.EventHandler(this.RegistrationView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

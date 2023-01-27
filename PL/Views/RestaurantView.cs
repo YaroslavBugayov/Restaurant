@@ -58,8 +58,7 @@ namespace PL
 
         private void buttonSignUp_Click(object sender, EventArgs e)
         {
-            RegistrationView registerWindow = new RegistrationView(this);
-            registerWindow.Show();
+            new RegistrationPresenter(new RegistrationView(), this);
         }
 
         public void loggedIntoAccount()
